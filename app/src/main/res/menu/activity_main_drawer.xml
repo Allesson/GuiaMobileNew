@@ -5,53 +5,40 @@
         <item
             android:id="@+id/museu_menu"
             android:icon="@drawable/ic_museu"
-            android:title="Museus" />
+            android:title="@string/museu_teatro" />
         <item
             android:id="@+id/igreja_menu"
             android:icon="@drawable/ic_museu"
-            android:title="Igrejas" />
+            android:title="@string/igrejas_monumentos" />
+
         <item
-            android:id="@+id/teatros_menu"
-            android:icon="@drawable/ic_museu"
-            android:title="Teatros" />
-        <item
-            android:id="@+id/pontos_menu"
+            android:id="@+id/pontes_menu"
             android:icon="@drawable/ic_museu"
             android:title="Pontes" />
         <item
             android:id="@+id/mercado_menu"
             android:icon="@drawable/ic_museu"
             android:title="Mercado" />
-        <item
-            android:id="@+id/parques_pracas_menu"
-            android:icon="@drawable/ic_museu"
-            android:title="Parques e Pracas" />
-        <item
-            android:id="@+id/prais_menu"
-            android:icon="@drawable/ic_museu"
-            android:title="Prais" />
-
-        <item
-            android:id="@+id/monumentos_menu"
-            android:icon="@drawable/ic_museu"
-            android:title="Monumentos Históricos" />
 
         <item
             android:id="@+id/artesanatos_menu"
             android:icon="@drawable/ic_museu"
             android:title="Artesanatos" />
+        <item
+            android:id="@+id/parques_pracas_menu"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/parques_pracas" />
+        <item
+            android:id="@+id/praias_menu"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/praias" />
+
+        <item
+            android:id="@+id/bares_restaurante_menu"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Bares e Restaurantes" />
 
     </group>
-
-    <item android:title="Diversão e Lazer">
-        <menu>
-            <item
-                android:id="@+id/bares_restaurante_menu"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Bares e Restaurantes" />
-
-        </menu>
-    </item>
 
 
 </menu>

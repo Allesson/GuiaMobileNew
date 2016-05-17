@@ -1,8 +1,8 @@
 package br.com.guiamobile.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -19,7 +19,14 @@ import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.view.Fragmet.MuseuFragment;
+import br.com.guiamobile.view.Fragment.ArtesanatosFragment;
+import br.com.guiamobile.view.Fragment.BaresRestFragment;
+import br.com.guiamobile.view.Fragment.IgrejasMonuFragment;
+import br.com.guiamobile.view.Fragment.MercadosFragment;
+import br.com.guiamobile.view.Fragment.MuseusTeatrosFragment;
+import br.com.guiamobile.view.Fragment.ParquesPracasFragment;
+import br.com.guiamobile.view.Fragment.PontesFragment;
+import br.com.guiamobile.view.Fragment.PraiasFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -96,11 +103,33 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment = null;
+        Intent intent =null;
 
         switch (id) {
 
             case R.id.museu_menu:
-                fragment = new MuseuFragment();
+                fragment = new MuseusTeatrosFragment();
+                break;
+            case R.id.igreja_menu:
+                fragment = new IgrejasMonuFragment();
+                break;
+            case R.id.pontes_menu:
+                fragment = new PontesFragment();
+                break;
+            case R.id.mercado_menu:
+                fragment = new MercadosFragment();
+                break;
+            case R.id.artesanatos_menu:
+                fragment = new ArtesanatosFragment();
+                break;
+            case R.id.parques_pracas_menu:
+                fragment = new ParquesPracasFragment();
+                break;
+            case R.id.praias_menu:
+                fragment = new PraiasFragment();
+                break;
+            case R.id.bares_restaurante_menu:
+                fragment = new BaresRestFragment();
                 break;
 
         }
