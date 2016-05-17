@@ -1,29 +1,40 @@
 package br.com.guiamobile.view;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.guiamobile.R;
 import br.com.guiamobile.view.Fragmet.MuseuFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
+    private GoogleMap googleMap;
     private GoogleMapOptions options;
     private FragmentTransaction ft;
     private SupportMapFragment mapFragment;
@@ -39,17 +50,16 @@ public class MainActivity extends AppCompatActivity
         options = new GoogleMapOptions();
         options.zOrderOnTop(true);
         mapFragment = SupportMapFragment.newInstance(options);
+        mapFragment.getMapAsync(this);
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, mapFragment).commit();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, mapFragment).commit();
-
-                //Snackbar.make(view, "Não Foi implementado esse caralho não", Snackbar.LENGTH_LONG)
-                //.setAction("Action", null).show();
             }
         });
 
@@ -80,6 +90,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        this.addMarker(); // para quando voltar ao fragmento
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -103,14 +119,40 @@ public class MainActivity extends AppCompatActivity
                 fragment = new MuseuFragment();
                 break;
 
+
         }
 
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    //google maps..
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        this.googleMap = googleMap;
+        this.addMarker();
+    }
+
+    private void addMarker() {
+        if (googleMap != null) {
+            LatLng latlng = new LatLng(-8.054968, -34.890321);
+            googleMap.addMarker(new MarkerOptions()
+                    .position(latlng)
+                    .title("Gilberto Feitosa"));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 9);
+            }
+        }
     }
 }

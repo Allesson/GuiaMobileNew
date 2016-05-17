@@ -26,7 +26,9 @@ public class MuseuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.museu_fragment, null);
-//Progrmada aqui allesson
+
+
+
         return view;
     }
 }
