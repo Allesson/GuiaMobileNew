@@ -26,24 +26,17 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.view.Fragment.ArtesanatosFragment;
-import br.com.guiamobile.view.Fragment.BaresRestFragment;
-import br.com.guiamobile.view.Fragment.IgrejasMonuFragment;
-import br.com.guiamobile.view.Fragment.MercadosFragment;
-import br.com.guiamobile.view.Fragment.MuseusTeatrosFragment;
-import br.com.guiamobile.view.Fragment.ParquesPracasFragment;
-import br.com.guiamobile.view.Fragment.PontesFragment;
-import br.com.guiamobile.view.Fragment.PraiasFragment;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private GoogleMapOptions options;
     private FragmentTransaction ft;
     private SupportMapFragment mapFragment;
 
@@ -55,9 +48,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        options = new GoogleMapOptions();
-        options.zOrderOnTop(true);
-        mapFragment = SupportMapFragment.newInstance(options);
+
+
+        mapFragment = SupportMapFragment.newInstance();
         mapFragment.getMapAsync(this);
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, mapFragment).commit();
@@ -67,7 +60,10 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, mapFragment).commit();
+                mapFragment = SupportMapFragment.newInstance();
+                mapFragment.getMapAsync(MainActivity.this);
+                ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.container, mapFragment).commit();
             }
         });
 
@@ -97,6 +93,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -114,12 +111,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment = null;
-        Intent intent =null;
+
 
         switch (id) {
 
             case R.id.museu_menu:
-                fragment = new MuseuFragment();
+
                 break;
 
 
@@ -134,4 +131,30 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    //google maps..
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        if (googleMap != null) {
+
+            LatLng latlng = new LatLng(-8.054968, -34.890321);
+            googleMap.addMarker(new MarkerOptions()
+                    .position(latlng)
+                    .title("Gilberto Feitosa"));
+
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
+
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 9);
+            }
+        }
+    }
+
+
 }
