@@ -22,6 +22,7 @@ import br.com.guiamobile.controller.PontoMuseusTRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
 import br.com.guiamobile.view.PontoTuristicoEscolhido;
+import br.com.guiamobile.view.ScrollingActivity;
 
 /**
  * Created by Allesson on 15/05/2016.
@@ -88,7 +89,7 @@ public class MuseusTeatrosFragment extends Fragment {
                 PontoTuristico pontoEscolhido = listaDeLugares.get(position);
 
 
-                Intent intent = new Intent(getContext(), PontoTuristicoEscolhido.class);
+                Intent intent = new Intent(getContext(), ScrollingActivity.class);
                 intent.putExtra("PontoEscolhido", pontoEscolhido);
                 startActivity(intent);
             }
