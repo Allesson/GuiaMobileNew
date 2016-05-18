@@ -103,10 +103,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment = null;
-        Intent intent =null;
-
         switch (id) {
-
             case R.id.museu_menu:
                 fragment = new MuseusTeatrosFragment();
                 break;
