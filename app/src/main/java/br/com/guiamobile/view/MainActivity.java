@@ -2,6 +2,7 @@ package br.com.guiamobile.view;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -29,7 +30,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.view.Fragmet.MuseuFragment;
+import br.com.guiamobile.view.Fragment.ArtesanatosFragment;
+import br.com.guiamobile.view.Fragment.BaresRestFragment;
+import br.com.guiamobile.view.Fragment.IgrejasMonuFragment;
+import br.com.guiamobile.view.Fragment.MercadosFragment;
+import br.com.guiamobile.view.Fragment.MuseusTeatrosFragment;
+import br.com.guiamobile.view.Fragment.ParquesPracasFragment;
+import br.com.guiamobile.view.Fragment.PontesFragment;
+import br.com.guiamobile.view.Fragment.PraiasFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
@@ -90,12 +98,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        this.addMarker(); // para quando voltar ao fragmento
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -112,6 +114,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment = null;
+        Intent intent =null;
 
         switch (id) {
 
@@ -130,29 +133,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-
-    //google maps..
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
-        this.addMarker();
-    }
-
-    private void addMarker() {
-        if (googleMap != null) {
-            LatLng latlng = new LatLng(-8.054968, -34.890321);
-            googleMap.addMarker(new MarkerOptions()
-                    .position(latlng)
-                    .title("Gilberto Feitosa"));
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                googleMap.setMyLocationEnabled(true);
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 9);
-            }
-        }
     }
 }
