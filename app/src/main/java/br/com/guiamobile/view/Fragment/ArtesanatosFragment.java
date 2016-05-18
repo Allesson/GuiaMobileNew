@@ -21,8 +21,7 @@ import br.com.guiamobile.R;
 import br.com.guiamobile.controller.PontoArtesanatosRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
-import br.com.guiamobile.view.PontoTuristicoEscolhido;
-import br.com.guiamobile.view.ScrollingActivity;
+import br.com.guiamobile.view.PontoEscolhidoActivity;
 
 /**
  * Created by Allesson on 16/05/2016.
@@ -91,7 +90,7 @@ public class ArtesanatosFragment extends Fragment {
                 PontoTuristico pontoEscolhido = listaDeLugares.get(position);
 
 
-                Intent intent = new Intent(getContext(), PontoTuristicoEscolhido.class);
+                Intent intent = new Intent(getContext(), PontoEscolhidoActivity.class);
                 intent.putExtra("PontoEscolhido", pontoEscolhido);
                 startActivity(intent);
             }

@@ -17,9 +17,7 @@
             android:ems="10"
             android:id="@+id/edt_buscar"
             android:layout_marginTop="30px"
-            android:layout_weight="1"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
+            android:layout_weight="1" />
 
 
     </RelativeLayout>

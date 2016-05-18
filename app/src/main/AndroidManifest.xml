@@ -44,9 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.PontoTuristicoEscolhido" />
         <activity
-            android:name=".view.ScrollingActivity"
+            android:name=".view.PontoEscolhidoActivity"
             android:label="@string/title_activity_scrolling"
             android:parentActivityName=".view.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

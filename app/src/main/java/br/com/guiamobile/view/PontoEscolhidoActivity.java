@@ -16,7 +16,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import br.com.guiamobile.R;
 import br.com.guiamobile.model.PontoTuristico;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class PontoEscolhidoActivity extends AppCompatActivity {
 
     private TextView titulo, texto;
     @Override
