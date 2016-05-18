@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ldlMsgVazia"
             android:id="@+id/msg_lista_vazia"
-            android:textSize="60px"
+            android:textSize="30dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
