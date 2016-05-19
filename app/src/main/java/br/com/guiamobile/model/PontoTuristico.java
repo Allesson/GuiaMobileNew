@@ -63,26 +63,15 @@ public class PontoTuristico extends Activity implements Serializable {
 
 
 
-    /**
-     * @param id   Recebe um dado do tipo Integer
-     * @param view receve o layout do contexto
-     */
-    /**public void MostrarImagem(View view, Integer id) {
+
+   public static void MostrarImagem(View view, String img) {
         ImageView imageView = (ImageView) view.findViewById(R.id.imagem);
 
-        switch (id) {
-            case 1:
-                imageView.setImageResource(R.drawable.marco_zero);
+        switch (img) {
+            case "marco":
+                imageView.setImageResource(R.drawable.ic_museu);
                 break;
-            case 2:
-                imageView.setImageResource(R.drawable.centro_cultural_caixa);
-                break;
-            case 3:
-                imageView.setImageResource(R.drawable.estacao_antiga_ferroviarial);
-                break;
-            case 4:
-                imageView.setImageResource(R.drawable.igreja_soledade);
-                break;
+
         }
-    }**/
+    }
 }

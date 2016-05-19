@@ -58,7 +58,9 @@ public class RetornoBusca_Adapter extends BaseAdapter {
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
         descricao.setText(pontoTuristico.getDescricao());
 
-        //pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID());
+
+
+        pontoTuristico.MostrarImagem(view, "marco");
 
 
         //Alerar e alternar a cor do ListView;

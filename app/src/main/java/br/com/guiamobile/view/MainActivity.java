@@ -1,10 +1,12 @@
 package br.com.guiamobile.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,9 +18,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+import br.com.guiamobile.Manifest;
 import br.com.guiamobile.R;
 import br.com.guiamobile.view.Fragment.ArtesanatosFragment;
 import br.com.guiamobile.view.Fragment.BaresRestFragment;
@@ -32,9 +40,10 @@ import br.com.guiamobile.view.Fragment.PraiasFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private GoogleMapOptions options;
+    /*
     private FragmentTransaction ft;
     private SupportMapFragment mapFragment;
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +51,22 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        options = new GoogleMapOptions();
-        options.zOrderOnTop(true);
-        mapFragment = SupportMapFragment.newInstance(options);
+
+        /*
+        mapFragment = SupportMapFragment.newInstance();
         ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, mapFragment).commit();
+        ft.add(R.id.container, mapFragment).commit();
+        mapFragment.getMapAsync(this);
+            */
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, mapFragment).commit();
 
-                //Snackbar.make(view, "Não Foi implementado esse caralho não", Snackbar.LENGTH_LONG)
-                //.setAction("Action", null).show();
             }
         });
 
@@ -81,28 +90,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        switch (id){
-            case R.id.action_settings:
-                return true;
-            case R.id.action_search:
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -146,4 +134,27 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+     /*  @Override
+    public void onMapReady(GoogleMap googleMap) {
+        if (googleMap != null) {
+
+            LatLng latlng = new LatLng(-8.054968, -34.890321);
+
+            googleMap.addMarker(new MarkerOptions()
+                    .position(latlng)
+                    .title("Gilberto Feitosa"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+
+         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 9);
+            }
+
+        }
+    }
+        */
 }

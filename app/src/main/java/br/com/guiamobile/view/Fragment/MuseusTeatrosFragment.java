@@ -1,18 +1,25 @@
 package br.com.guiamobile.view.Fragment;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.widget.Toolbar;
+
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,17 +44,19 @@ public class MuseusTeatrosFragment extends Fragment {
     List<PontoTuristico> listaDeLugares;
     RetornoBusca_Adapter adapter;
     TextView btn_lazer;
+    private Toolbar toolbar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setHasOptionsMenu(true);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragments, null);
+
 
         lista = (ListView) view.findViewById(R.id.lista_lugares);
         lista.setEmptyView(view.findViewById(R.id.msg_lista_vazia));
@@ -56,30 +65,6 @@ public class MuseusTeatrosFragment extends Fragment {
         pontoMuseusTRepositorio = new PontoMuseusTRepositorio(getContext());
 
 
-        edt_buscar = (EditText) view.findViewById(R.id.edt_buscar);
-        edt_buscar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                carregarLugares();
-                if (!s.toString().equals("")) {
-                    boolean retorno = false;
-                    do {
-                        retorno = searchItem(s.toString());
-                    } while (!retorno);
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         carregarLugares();
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,10 +83,37 @@ public class MuseusTeatrosFragment extends Fragment {
     }
 
 
-    private void carregarLugares() {
-        listaDeLugares = pontoMuseusTRepositorio.listar();
-        adapter = new RetornoBusca_Adapter(getContext(),listaDeLugares);
-        this.lista.setAdapter(adapter);
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        SearchView sv = new SearchView(getContext());
+        sv.setOnQueryTextListener(new SearchFiltro());
+
+        MenuItem pesquisa = menu.add(0, 0, 0, "Pesquisa");
+        pesquisa.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        pesquisa.setActionView(sv);
+
+    }
+
+
+    protected class SearchFiltro implements SearchView.OnQueryTextListener {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String s) {
+            carregarLugares();
+            if (!s.toString().equals("")) {
+                boolean retorno = false;
+                do {
+                    retorno = searchItem(s.toString());
+                } while (!retorno);
+
+            }
+            return false;
+        }
     }
 
     //localizar
@@ -115,4 +127,13 @@ public class MuseusTeatrosFragment extends Fragment {
         }
         return true;
     }
+
+
+    private void carregarLugares() {
+        listaDeLugares = pontoMuseusTRepositorio.listar();
+        adapter = new RetornoBusca_Adapter(getContext(), listaDeLugares);
+        this.lista.setAdapter(adapter);
+    }
+
+
 }

@@ -8,10 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMapOptions;
-import com.google.android.gms.maps.SupportMapFragment;
 
 import br.com.guiamobile.R;
 import br.com.guiamobile.model.PontoTuristico;
@@ -19,6 +18,7 @@ import br.com.guiamobile.model.PontoTuristico;
 public class PontoEscolhidoActivity extends AppCompatActivity {
 
     private TextView titulo, texto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
 
         titulo.setText(pontoTuristico.getTitulo());
         texto.setText(pontoTuristico.getPontoTuristico());
+
 
         //pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID());
 
