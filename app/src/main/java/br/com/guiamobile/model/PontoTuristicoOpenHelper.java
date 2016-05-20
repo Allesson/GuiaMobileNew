@@ -221,7 +221,7 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
             ");";
     private static final String M_M_GRECA =
             "INSERT INTO tbl_pontoMuseusT (titulo,descricao,texto, latitude, longitude, idTab)" +
-                    "values ('Museu do Museu Murilo La Greca'," +
+                    "values ('Museu Murillo La Greca'," +
                     "'R. Leonardo Bezerra Cavalcante,366, Parnamirim.'," +
                     "' Comportando um acervo de 1.400 desenhos, com técnicas de fusain, crayon, pastel e sanguínea, o museu ainda possui discos, livros e mobiliários expostos em caráter de longa duração em quatro das oito salas de exposição. Há também 160 pinturas, entre paisagens, retratos e impressionistas e cartas, trocadas com Portinari e Giacometti. Foi nesse acervo que La Greca deixou sua marca inconfundível, tendo o seu forte na diversidade de sua obra artística, da aproximação com a arte contemporânea. Esse rico patrimônio está à disposição da população recifense, de forma atualmente mais intensa e orgânica. '," +"-8.037325,"+"-34.909832,"+"1"+
             ");";

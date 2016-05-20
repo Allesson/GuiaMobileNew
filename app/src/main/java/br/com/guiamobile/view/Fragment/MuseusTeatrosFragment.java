@@ -28,7 +28,6 @@ import br.com.guiamobile.R;
 import br.com.guiamobile.controller.PontoMuseusTRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
-import br.com.guiamobile.view.PontoEscolhidoActivity;
 
 /**
  * Created by Allesson on 15/05/2016.

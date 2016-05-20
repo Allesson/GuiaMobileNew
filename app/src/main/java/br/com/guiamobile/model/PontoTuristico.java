@@ -20,12 +20,14 @@ public class PontoTuristico extends Activity implements Serializable {
     private String titulo;
     private String descricao;
     private String pontoTuristico;
+    private Integer idTab;
 
-    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico) {
+    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico,Integer idTab) {
         this.pontoTuristicoID = pontoTuristicoID;
         this.titulo = titulo;
         this.descricao = descricao;
         this.pontoTuristico = pontoTuristico;
+        this.idTab=idTab;
     }
 
 

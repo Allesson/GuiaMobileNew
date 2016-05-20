@@ -39,8 +39,9 @@ public class PontoMuseusTRepositorio {
             String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             String texto = cursor.getString(cursor.getColumnIndex("texto"));
+            Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
 
-            PontoTuristico pontoTuristico = new PontoTuristico( id , titulo, descricao, texto);
+            PontoTuristico pontoTuristico = new PontoTuristico( id , titulo, descricao, texto,idTab);
             lista.add(pontoTuristico);
         }
         return lista;
@@ -58,7 +59,8 @@ public class PontoMuseusTRepositorio {
             String titulo=cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao=cursor.getString(cursor.getColumnIndex("descricao"));
             String texto=cursor.getString(cursor.getColumnIndex("texto"));
-            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto);
+            Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
+            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto,idTab);
             listaTuristica.add(lugares);
         }
         return listaTuristica;
