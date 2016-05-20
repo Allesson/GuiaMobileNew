@@ -75,6 +75,9 @@ public class PontoTuristico extends Activity implements Serializable {
             switch (id){
                 case 1:
                     imageView.setImageResource(R.drawable.ic_museu);
+                    break;
+                case 2:
+                    imageView.setImageResource(R.drawable.m_c_recife);
             }
         }
     }

@@ -7,11 +7,15 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,9 +45,7 @@ public class ArtesanatosFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // se precisar inicialiar algo, deve ser aqui.. mais deve usar o View onCreante abaixo..
-        // se precisar de um CONTEXT ou seja instancia da tela vc usar o metodo getActivity ou getConxtex
+        setHasOptionsMenu(true);
     }
 
     @Nullable
@@ -57,31 +59,6 @@ public class ArtesanatosFragment extends Fragment {
         listaDeLugares = new ArrayList<>();
         pontoArtesanatosRepositorio = new PontoArtesanatosRepositorio(getContext());
 
-
-        edt_buscar = (EditText) view.findViewById(R.id.edt_buscar);
-        edt_buscar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                carregarLugares();
-                if (!s.toString().equals("")) {
-                    boolean retorno = false;
-                    do {
-                        retorno = searchItem(s.toString());
-                    } while (!retorno);
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         carregarLugares();
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,7 +75,38 @@ public class ArtesanatosFragment extends Fragment {
 
         return view;
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
+        SearchView sv = new SearchView(getContext());
+        sv.setOnQueryTextListener(new SearchFiltro());
+
+        MenuItem pesquisa = menu.add(0, 0, 0, "Pesquisa");
+        pesquisa.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        pesquisa.setActionView(sv);
+
+    }
+
+
+    protected class SearchFiltro implements SearchView.OnQueryTextListener {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String s) {
+            carregarLugares();
+            if (!s.toString().equals("")) {
+                boolean retorno = false;
+                do {
+                    retorno = searchItem(s.toString());
+                } while (!retorno);
+
+            }
+            return false;
+        }
+    }
 
     private void carregarLugares() {
         listaDeLugares = pontoArtesanatosRepositorio.listar();

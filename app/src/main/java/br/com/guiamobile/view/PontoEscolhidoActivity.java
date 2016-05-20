@@ -48,7 +48,7 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
         texto.setText(pontoTuristico.getPontoTuristico());
 
 
-        //pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID());
+        pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID(),pontoTuristico.getIdTab());
 
     }
 }

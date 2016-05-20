@@ -7,11 +7,15 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,6 +45,7 @@ public class MercadosFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
     }
 
@@ -56,30 +61,7 @@ public class MercadosFragment extends Fragment {
         pontoMercadosRepositorio = new PontoMercadosRepositorio(getContext());
 
 
-        edt_buscar = (EditText) view.findViewById(R.id.edt_buscar);
-        edt_buscar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                carregarLugares();
-                if (!s.toString().equals("")) {
-                    boolean retorno = false;
-                    do {
-                        retorno = searchItem(s.toString());
-                    } while (!retorno);
-
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         carregarLugares();
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,6 +80,37 @@ public class MercadosFragment extends Fragment {
     }
 
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        SearchView sv = new SearchView(getContext());
+        sv.setOnQueryTextListener(new SearchFiltro());
+
+        MenuItem pesquisa = menu.add(0, 0, 0, "Pesquisa");
+        pesquisa.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        pesquisa.setActionView(sv);
+
+    }
+
+    protected class SearchFiltro implements SearchView.OnQueryTextListener {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String s) {
+            carregarLugares();
+            if (!s.toString().equals("")) {
+                boolean retorno = false;
+                do {
+                    retorno = searchItem(s.toString());
+                } while (!retorno);
+
+            }
+            return false;
+        }
+    }
     private void carregarLugares() {
         listaDeLugares = pontoMercadosRepositorio.listar();
         adapter = new RetornoBusca_Adapter(getContext(),listaDeLugares);

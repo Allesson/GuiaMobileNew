@@ -39,12 +39,9 @@ public class MuseusTeatrosFragment extends Fragment {
     private ListView lista;
     private PontoMuseusTRepositorio pontoMuseusTRepositorio;
     private static final int PONTO_TURISTICO = 1;
-    private EditText edt_buscar;
     private LayoutInflater menuLayout;
     List<PontoTuristico> listaDeLugares;
     RetornoBusca_Adapter adapter;
-    TextView btn_lazer;
-    private Toolbar toolbar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +60,6 @@ public class MuseusTeatrosFragment extends Fragment {
 
         listaDeLugares = new ArrayList<>();
         pontoMuseusTRepositorio = new PontoMuseusTRepositorio(getContext());
-
 
         carregarLugares();
 
@@ -94,7 +90,6 @@ public class MuseusTeatrosFragment extends Fragment {
         pesquisa.setActionView(sv);
 
     }
-
 
     protected class SearchFiltro implements SearchView.OnQueryTextListener {
         @Override
