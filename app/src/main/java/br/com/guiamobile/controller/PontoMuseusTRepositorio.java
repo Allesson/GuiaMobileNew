@@ -48,7 +48,7 @@ public class PontoMuseusTRepositorio {
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MUSEUST, new String[]{"id", "titulo", "descricao", "texto"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MUSEUST, new String[]{"id", "titulo", "descricao", "texto","idTab"},
                 null, null, null, null, null);
 
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();

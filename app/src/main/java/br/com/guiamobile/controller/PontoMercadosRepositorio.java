@@ -39,15 +39,15 @@ public class PontoMercadosRepositorio {
             String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             String texto = cursor.getString(cursor.getColumnIndex("texto"));
-
-            PontoTuristico pontoTuristico = new PontoTuristico( id , titulo, descricao, texto);
+            Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
+            PontoTuristico pontoTuristico=new PontoTuristico(id,titulo,descricao,texto,idTab);
             lista.add(pontoTuristico);
         }
         return lista;
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MERCADOS, new String[]{"id", "titulo", "descricao", "texto"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MERCADOS, new String[]{"id", "titulo", "descricao", "texto","idTab"},
                 null, null, null, null, null);
 
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();
@@ -58,7 +58,8 @@ public class PontoMercadosRepositorio {
             String titulo=cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao=cursor.getString(cursor.getColumnIndex("descricao"));
             String texto=cursor.getString(cursor.getColumnIndex("texto"));
-            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto);
+            Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
+            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto,idTab);
             listaTuristica.add(lugares);
         }
         return listaTuristica;

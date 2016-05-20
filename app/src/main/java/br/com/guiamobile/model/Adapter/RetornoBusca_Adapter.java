@@ -60,7 +60,7 @@ public class RetornoBusca_Adapter extends BaseAdapter {
 
 
 
-        pontoTuristico.MostrarImagem(view, "marco");
+        pontoTuristico.MostrarImagem(view,pontoTuristico.getPontoTuristicoID(),pontoTuristico.getIdTab());
 
 
         //Alerar e alternar a cor do ListView;

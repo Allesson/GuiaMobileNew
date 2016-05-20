@@ -34,6 +34,9 @@ public class PontoTuristico extends Activity implements Serializable {
     public Integer getPontoTuristicoID() {
         return pontoTuristicoID;
     }
+    public Integer getIdTab() {
+        return idTab;
+    }
 
     public void setPontoTuristicoID(Integer pontoTuristicoID) {
         this.pontoTuristicoID = pontoTuristicoID;
@@ -66,14 +69,13 @@ public class PontoTuristico extends Activity implements Serializable {
 
 
 
-   public static void MostrarImagem(View view, String img) {
+   public static void MostrarImagem(View view, Integer id, Integer idTab) {
         ImageView imageView = (ImageView) view.findViewById(R.id.imagem);
-
-        switch (img) {
-            case "marco":
-                imageView.setImageResource(R.drawable.ic_museu);
-                break;
-
+        if(idTab== 1){
+            switch (id){
+                case 1:
+                    imageView.setImageResource(R.drawable.ic_museu);
+            }
         }
     }
 }
