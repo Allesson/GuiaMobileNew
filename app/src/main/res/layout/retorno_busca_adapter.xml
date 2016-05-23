@@ -25,7 +25,7 @@
         <TextView
             android:layout_marginLeft="30px"
             android:layout_marginTop="15px"
-            android:text="Marco Zero"
+            android:text="Mercado de São José"
             android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,12 +36,12 @@
         <TextView
             android:layout_marginLeft="30px"
             android:layout_marginTop="10px"
-            android:text="O Recife nasceu neste local: um trecho de terra em meio a um oceano de manguezais de frente para uma barreira de arrecifes de traçado quase perfeito."
             android:id="@+id/descricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
+            android:textColor="#6666ff"
             android:layout_weight="1"
-            android:textSize="@dimen/texto_conteudo" />
+            android:textSize="@dimen/texto_conteudo"
+            android:text="Praça Dom Vital, s/n - São José, Recife." />
     </LinearLayout>
 </LinearLayout>
