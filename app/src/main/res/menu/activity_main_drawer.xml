@@ -8,34 +8,34 @@
             android:title="@string/museu_teatro" />
         <item
             android:id="@+id/igreja_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_igreja"
             android:title="@string/igrejas_monumentos" />
 
         <item
             android:id="@+id/pontes_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_pontes"
             android:title="Pontes" />
         <item
             android:id="@+id/mercado_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_mercado"
             android:title="Mercado" />
 
         <item
             android:id="@+id/artesanatos_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_artesanato"
             android:title="Artesanatos" />
         <item
             android:id="@+id/parques_pracas_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_parque"
             android:title="@string/parques_pracas" />
         <item
             android:id="@+id/praias_menu"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_praia"
             android:title="@string/praias" />
 
         <item
             android:id="@+id/bares_restaurante_menu"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_bares"
             android:title="Bares e Restaurantes" />
 
     </group>

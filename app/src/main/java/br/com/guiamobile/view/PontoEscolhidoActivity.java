@@ -27,13 +27,7 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab);
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

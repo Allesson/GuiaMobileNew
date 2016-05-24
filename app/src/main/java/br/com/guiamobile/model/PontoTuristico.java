@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
 
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.io.Serializable;
 
 import br.com.guiamobile.R;
@@ -22,18 +26,19 @@ public class PontoTuristico extends Activity implements Serializable {
     private String pontoTuristico;
     private Integer idTab;
 
-    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico,Integer idTab) {
+    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico, Integer idTab) {
         this.pontoTuristicoID = pontoTuristicoID;
         this.titulo = titulo;
         this.descricao = descricao;
         this.pontoTuristico = pontoTuristico;
-        this.idTab=idTab;
+        this.idTab = idTab;
     }
 
 
     public Integer getPontoTuristicoID() {
         return pontoTuristicoID;
     }
+
     public Integer getIdTab() {
         return idTab;
     }
@@ -67,14 +72,17 @@ public class PontoTuristico extends Activity implements Serializable {
     }
 
 
-
-
-   public static void MostrarImagem(View view, Integer id, Integer idTab) {
+    public static void MostrarImagem(View view, Integer id, Integer idTab) {
         ImageView imageView = (ImageView) view.findViewById(R.id.imagem);
-        if(idTab== 1){
-            switch (id){
+        YoYo.with(Techniques.Landing)
+                .duration(700)
+                .playOn(imageView);
+        if (idTab == 1) {
+            switch (id) {
                 case 1:
                     imageView.setImageResource(R.drawable.ic_museu);
+
+
                     break;
                 case 2:
                     imageView.setImageResource(R.drawable.m_c_recife);

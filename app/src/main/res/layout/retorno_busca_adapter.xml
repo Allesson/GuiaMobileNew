@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="#ECEFF1"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/imagem"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="10px"
-            android:layout_width="119dp"
-            android:layout_height="104dp"
-            android:src="@mipmap/ic_launcher" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="15px"
-            android:text="Mercado de São José"
-            android:id="@+id/titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="@dimen/texto_titulo" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="10px"
-            android:id="@+id/descricao"
-            android:layout_width="match_parent"
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imagem"
+                android:layout_width="119dp"
+                android:layout_height="104dp"
+                android:layout_centerHorizontal="true"
+                app:civ_border_color="#000000"
+                app:civ_border_width="1dp" />
+
+            <!--   <ImageView
+                   android:id="@+id/imagem"
+                   android:layout_width="119dp"
+                   android:layout_height="104dp"
+                   android:layout_alignParentTop="true"
+                   android:layout_marginLeft="10px"
+                   android:layout_marginTop="10px"
+                   android:scaleType="centerCrop"
+                   android:src="@mipmap/ic_launcher" />
+   -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#6666ff"
-            android:layout_weight="1"
-            android:textSize="@dimen/texto_conteudo"
-            android:text="Praça Dom Vital, s/n - São José, Recife." />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="15px"
+                android:text="Mercado de São José"
+                android:textColor="#000000"
+                android:textSize="@dimen/texto_titulo"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="10px"
+                android:layout_weight="1"
+                android:text="Praça Dom Vital, s/n - São José, Recife."
+                android:textColor="#6666ff"
+                android:textSize="@dimen/texto_conteudo" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</android.support.v7.widget.CardView>
