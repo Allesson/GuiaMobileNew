@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.content.ContextCompat;
@@ -19,11 +20,13 @@ import android.support.v7.widget.Toolbar;
 
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-import br.com.guiamobile.Manifest;
 import br.com.guiamobile.R;
 import br.com.guiamobile.view.Fragment.ArtesanatosFragment;
 import br.com.guiamobile.view.Fragment.BaresRestFragment;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
 
     private MapFragment mMapFragment;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         mMapFragment = MapFragment.newInstance();
-        FragmentTransaction fragmentTransaction =
-                getFragmentManager().beginTransaction();
+        mMapFragment.getMapAsync(this);
+
+        fragmentTransaction =  getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container, mMapFragment);
         fragmentTransaction.commit();
 
@@ -129,12 +134,26 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        if (googleMap != null) {
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED) {
-            googleMap.setMyLocationEnabled(true);
-        } else {
-            // Show rationale and request permission.
+            LatLng latlng = new LatLng(-8.054968, -34.890321);
+
+            googleMap.addMarker(new MarkerOptions()
+                    .position(latlng)
+                    .title("Gilberto Feitosa"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 9);
+            }
+
         }
+
+
     }
 
      /*  @Override
