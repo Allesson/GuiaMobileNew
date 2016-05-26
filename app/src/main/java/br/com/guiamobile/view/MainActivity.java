@@ -2,6 +2,7 @@ package br.com.guiamobile.view;
 
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -52,10 +53,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         mMapFragment = MapFragment.newInstance();
         mMapFragment.getMapAsync(this);
 
-        fragmentTransaction =  getFragmentManager().beginTransaction();
+        fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container, mMapFragment);
         fragmentTransaction.commit();
 
@@ -63,7 +65,11 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mMapFragment = MapFragment.newInstance();
+                mMapFragment.getMapAsync(MainActivity.this);
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.container, mMapFragment);
+                fragmentTransaction.commit();
             }
         });
 
@@ -136,7 +142,7 @@ public class MainActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         if (googleMap != null) {
 
-            LatLng latlng = new LatLng(-8.054968, -34.890321);
+           /* LatLng latlng = new LatLng(-8.063198, -34.871217);
 
             googleMap.addMarker(new MarkerOptions()
                     .position(latlng)
@@ -144,7 +150,7 @@ public class MainActivity extends AppCompatActivity
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
-
+  */
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 googleMap.setMyLocationEnabled(true);
             } else {

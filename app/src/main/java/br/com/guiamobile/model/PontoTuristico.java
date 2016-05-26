@@ -34,6 +34,8 @@ public class PontoTuristico extends Activity implements Serializable {
         this.idTab = idTab;
     }
 
+    public PontoTuristico() {
+    }
 
     public Integer getPontoTuristicoID() {
         return pontoTuristicoID;

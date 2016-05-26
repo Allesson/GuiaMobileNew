@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+        <item
+            app:showAsAction="always"
+            android:id="@+id/museu_menu"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/museu_teatro" />
+        <item
+            app:showAsAction="always"
+            android:id="@+id/igreja_menu"
+            android:icon="@android:drawable/ic_menu_call"
+            android:title="@string/igrejas_monumentos" />
+
+        <item
+            app:showAsAction="always"
+            android:id="@+id/pontes_menu"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Pontes" />
+        <item
+            app:showAsAction="always"
+            android:id="@+id/mercado_menu"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="Mercado" />
+
+
+    </group>
+
+
+</menu>
