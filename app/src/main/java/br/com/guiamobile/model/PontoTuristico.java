@@ -25,6 +25,7 @@ public class PontoTuristico extends Activity implements Serializable {
     private String descricao;
     private String pontoTuristico;
     private Integer idTab;
+    private float latitude, longitude;
 
     public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico, Integer idTab) {
         this.pontoTuristicoID = pontoTuristicoID;
@@ -32,6 +33,12 @@ public class PontoTuristico extends Activity implements Serializable {
         this.descricao = descricao;
         this.pontoTuristico = pontoTuristico;
         this.idTab = idTab;
+    }
+
+    public PontoTuristico(String titulo, float latitude, float longitude){
+        this.titulo=titulo;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
     public PontoTuristico() {
@@ -72,6 +79,19 @@ public class PontoTuristico extends Activity implements Serializable {
     public void setPontoTuristico(String pontoTuristico) {
         this.pontoTuristico = pontoTuristico;
     }
+    public float getLatitude(){
+        return latitude;
+    }
+    public void setLatitude(float latitude){
+        this.latitude=latitude;
+    }
+    public float getLongitude(){
+        return longitude;
+    }
+    public void setLongitude(float longitude){
+        this.longitude=longitude;
+    }
+
 
 
     public static void MostrarImagem(View view, Integer id, Integer idTab) {
@@ -79,16 +99,27 @@ public class PontoTuristico extends Activity implements Serializable {
         YoYo.with(Techniques.Landing)
                 .duration(700)
                 .playOn(imageView);
-        if (idTab == 1) {
+        switch (idTab){
+            case 1:
             switch (id) {
                 case 1:
                     imageView.setImageResource(R.drawable.ic_museu);
-
-
                     break;
                 case 2:
                     imageView.setImageResource(R.drawable.m_c_recife);
+                    break;
             }
+                break;
+            case 3:
+                switch (id) {
+                    case 1:
+                        imageView.setImageResource(R.drawable.p_b_vista);
+                        break;
+                    case 2:
+                        imageView.setImageResource(R.drawable.p_b_macedo);
+                        break;
+                }
+                break;
         }
     }
 }

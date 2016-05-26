@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity
     public void onMapReady(GoogleMap googleMap) {
         if (googleMap != null) {
 
-           /* LatLng latlng = new LatLng(-8.063198, -34.871217);
+           LatLng latlng = new LatLng(-8.063198, -34.871217);
 
             googleMap.addMarker(new MarkerOptions()
                     .position(latlng)
@@ -150,9 +150,9 @@ public class MainActivity extends AppCompatActivity
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));
-  */
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 googleMap.setMyLocationEnabled(true);
+
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 9);
             }
