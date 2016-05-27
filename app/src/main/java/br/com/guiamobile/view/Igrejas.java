@@ -1,63 +1,50 @@
-package br.com.guiamobile.view.Fragment;
+package br.com.guiamobile.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.controller.PontoPraiasRepositorio;
+import br.com.guiamobile.controller.PontoMuseusTRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
-import br.com.guiamobile.view.PontoEscolhidoActivity;
 
 /**
- * Created by Allesson on 17/05/2016.
+ * Created by Gilberto on 27/05/2016.
  */
-public class PraiasFragment extends Fragment {
+public class Igrejas extends AppCompatActivity {
 
     private static final int BUSCAR = 1;
     private ListView lista;
-    private PontoPraiasRepositorio pontoPraiasRepositorio;
+    private PontoMuseusTRepositorio pontoMuseusTRepositorio;
     private static final int PONTO_TURISTICO = 1;
-    private EditText edt_buscar;
     private LayoutInflater menuLayout;
     List<PontoTuristico> listaDeLugares;
     RetornoBusca_Adapter adapter;
-    TextView btn_lazer;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
+        setContentView(R.layout.fragments);
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragments, null);
 
-        lista = (ListView) view.findViewById(R.id.lista_lugares);
-        lista.setEmptyView(view.findViewById(R.id.msg_lista_vazia));
+        lista = (ListView) findViewById(R.id.lista_lugares);
+        lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listaDeLugares = new ArrayList<>();
-        pontoPraiasRepositorio = new PontoPraiasRepositorio(getContext());
+        pontoMuseusTRepositorio = new PontoMuseusTRepositorio(this);
 
         carregarLugares();
 
@@ -67,30 +54,23 @@ public class PraiasFragment extends Fragment {
                 PontoTuristico pontoEscolhido = listaDeLugares.get(position);
 
 
-                Intent intent = new Intent(getContext(), PontoEscolhidoActivity.class);
+                Intent intent = new Intent(Igrejas.this, PontoEscolhidoActivity.class);
                 intent.putExtra("PontoEscolhido", pontoEscolhido);
                 startActivity(intent);
             }
         });
-        return view;
     }
 
-
-    private void carregarLugares() {
-        listaDeLugares = pontoPraiasRepositorio.listar();
-        adapter = new RetornoBusca_Adapter(getContext(),listaDeLugares);
-        this.lista.setAdapter(adapter);
-    }
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
-        SearchView sv = new SearchView(getContext());
+    public boolean onCreateOptionsMenu(Menu menu) {
+        SearchView sv = new SearchView(this);
         sv.setOnQueryTextListener(new SearchFiltro());
 
         MenuItem pesquisa = menu.add(0, 0, 0, "Pesquisa");
         pesquisa.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         pesquisa.setActionView(sv);
 
+        return super.onCreateOptionsMenu(menu);
     }
 
     protected class SearchFiltro implements SearchView.OnQueryTextListener {
@@ -112,6 +92,7 @@ public class PraiasFragment extends Fragment {
             return false;
         }
     }
+
     //localizar
     public boolean searchItem(String textToSearch) {
         for (PontoTuristico item : listaDeLugares) {
@@ -122,5 +103,12 @@ public class PraiasFragment extends Fragment {
             }
         }
         return true;
+    }
+
+
+    private void carregarLugares() {
+        listaDeLugares = pontoMuseusTRepositorio.listar();
+        adapter = new RetornoBusca_Adapter(this, listaDeLugares);
+        this.lista.setAdapter(adapter);
     }
 }

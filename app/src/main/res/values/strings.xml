@@ -1,15 +1,8 @@
 <resources>
     <string name="app_name">GuiaMobileNew</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="museu_teatro">Museus e Teatros</string>
-    <string name="igrejas_monumentos">Igrejas e Monumentos</string>
-    <string name="parques_pracas">Parques e Praças</string>
-    <string name="praias">Praias</string>
-    <string name="ldlMsgVazia">Lista Vazia</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
-
+    <string name="Igrejas">Igrejas</string>
+    <string name="MsgVazia">dados não encontrado.</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
