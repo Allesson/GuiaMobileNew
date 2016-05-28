@@ -7,17 +7,17 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.guiamobile.model.PontoTuristico;
 import br.com.guiamobile.model.PontoTuristicoOpenHelper;
+import br.com.guiamobile.model.PontoTuristico;
 
 /**
  * Created by Gilberto on 27/04/2016.
  */
-public class PontoParquesPRepositorio {
+public class PontoIgrejasRepositorio {
 
     private PontoTuristicoOpenHelper pontoTuristicoOpenHelper;
 
-    public PontoParquesPRepositorio(Context context) {
+    public PontoIgrejasRepositorio(Context context) {
         this.pontoTuristicoOpenHelper = new PontoTuristicoOpenHelper(context);
     }
 
@@ -26,10 +26,10 @@ public class PontoParquesPRepositorio {
      * @param busca Rebe uma String.
      * @return Retorna um LIST<PontoTuristico> referente a String que foi passada como  paramento.
      */
-    public List<PontoTuristico> buscarPontoParquesP(String busca) {
+    public List<PontoTuristico> buscarPontoIgrejasM(String busca) {
         SQLiteDatabase db = pontoTuristicoOpenHelper.getWritableDatabase();
 
-        String selectSQL = "SELECT * FROM tbl_pontoParquesP WHERE titulo LIKE '%" + busca + "%'";
+        String selectSQL = "SELECT * FROM tbl_pontoIgrejas WHERE titulo LIKE '%" + busca + "%'";
         Cursor cursor = db.rawQuery(selectSQL, null);
         List<PontoTuristico> lista = new ArrayList<>();
 
@@ -39,7 +39,6 @@ public class PontoParquesPRepositorio {
             String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             String texto = cursor.getString(cursor.getColumnIndex("texto"));
-
             Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
             PontoTuristico pontoTuristico=new PontoTuristico(id,titulo,descricao,texto,idTab);
             lista.add(pontoTuristico);
@@ -48,7 +47,7 @@ public class PontoParquesPRepositorio {
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_PARQUESP, new String[]{"id", "titulo", "descricao", "texto","idTab"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_IGREJAS, new String[]{"id", "titulo", "descricao", "texto","idTab"},
                 null, null, null, null, null);
 
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();

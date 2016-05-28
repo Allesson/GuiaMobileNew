@@ -15,18 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.controller.PontoMuseusTRepositorio;
+import br.com.guiamobile.controller.PontoMuseusRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
 
 /**
- * Created by Gilberto on 27/05/2016.
+ * Created by Allesson on 27/05/2016.
  */
-public class Igrejas extends AppCompatActivity {
-
+public class MuseuActivity extends AppCompatActivity {
     private static final int BUSCAR = 1;
     private ListView lista;
-    private PontoMuseusTRepositorio pontoMuseusTRepositorio;
+    private PontoMuseusRepositorio pontoMuseusRepositorio;
     private static final int PONTO_TURISTICO = 1;
     private LayoutInflater menuLayout;
     List<PontoTuristico> listaDeLugares;
@@ -44,7 +43,7 @@ public class Igrejas extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listaDeLugares = new ArrayList<>();
-        pontoMuseusTRepositorio = new PontoMuseusTRepositorio(this);
+        pontoMuseusRepositorio = new PontoMuseusRepositorio(this);
 
         carregarLugares();
 
@@ -54,7 +53,7 @@ public class Igrejas extends AppCompatActivity {
                 PontoTuristico pontoEscolhido = listaDeLugares.get(position);
 
 
-                Intent intent = new Intent(Igrejas.this, PontoEscolhidoActivity.class);
+                Intent intent = new Intent(MuseuActivity.this, PontoEscolhidoActivity.class);
                 intent.putExtra("PontoEscolhido", pontoEscolhido);
                 startActivity(intent);
             }
@@ -108,7 +107,7 @@ public class Igrejas extends AppCompatActivity {
 
 
     private void carregarLugares() {
-        listaDeLugares = pontoMuseusTRepositorio.listar();
+        listaDeLugares = pontoMuseusRepositorio.listar();
         adapter = new RetornoBusca_Adapter(this, listaDeLugares);
         this.lista.setAdapter(adapter);
     }

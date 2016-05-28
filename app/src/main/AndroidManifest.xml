@@ -40,6 +40,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.IgrejasActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
+        </activity>
+        <activity android:name=".view.MuseuActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
+        </activity>
+
+        <activity android:name=".view.ParquesPracasActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
+        </activity>
+
+        <activity android:name=".view.PraiasActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
+        </activity>
+
+        <activity android:name=".view.BaresRestActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
+        </activity>
 
         <activity
             android:name=".view.PontoEscolhidoActivity"
@@ -47,11 +75,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity android:name=".view.Igrejas">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
-        </activity>
 
     </application>
 

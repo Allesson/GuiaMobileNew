@@ -7,5 +7,21 @@
             android:id="@+id/igreja"
             android:icon="@drawable/ic_igreja"
             android:title="@string/Igrejas" />
+        <item
+            android:id="@+id/museu"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/Museus" />
+        <item
+            android:id="@+id/parquesPracas"
+            android:icon="@drawable/ic_parque"
+            android:title="@string/ParquesPracas" />
+        <item
+            android:id="@+id/praias"
+            android:icon="@drawable/ic_praia"
+            android:title="@string/Praias" />
+        <item
+            android:id="@+id/baresRest"
+            android:icon="@drawable/ic_bares"
+            android:title="@string/BaresRest" />
     </group>
 </menu>

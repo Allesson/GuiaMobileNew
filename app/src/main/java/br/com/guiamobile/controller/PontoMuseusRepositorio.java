@@ -13,11 +13,11 @@ import br.com.guiamobile.model.PontoTuristico;
 /**
  * Created by Gilberto on 27/04/2016.
  */
-public class PontoIgrejasMRepositorio {
+public class PontoMuseusRepositorio {
 
     private PontoTuristicoOpenHelper pontoTuristicoOpenHelper;
 
-    public PontoIgrejasMRepositorio(Context context) {
+    public PontoMuseusRepositorio(Context context) {
         this.pontoTuristicoOpenHelper = new PontoTuristicoOpenHelper(context);
     }
 
@@ -26,10 +26,10 @@ public class PontoIgrejasMRepositorio {
      * @param busca Rebe uma String.
      * @return Retorna um LIST<PontoTuristico> referente a String que foi passada como  paramento.
      */
-    public List<PontoTuristico> buscarPontoIgrejasM(String busca) {
+    public List<PontoTuristico> buscarPontoMuseusT(String busca) {
         SQLiteDatabase db = pontoTuristicoOpenHelper.getWritableDatabase();
 
-        String selectSQL = "SELECT * FROM tbl_pontoIgrejasM WHERE titulo LIKE '%" + busca + "%'";
+        String selectSQL = "SELECT * FROM tbl_pontoMuseus WHERE titulo LIKE '%" + busca + "%'";
         Cursor cursor = db.rawQuery(selectSQL, null);
         List<PontoTuristico> lista = new ArrayList<>();
 
@@ -40,14 +40,15 @@ public class PontoIgrejasMRepositorio {
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             String texto = cursor.getString(cursor.getColumnIndex("texto"));
             Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
-            PontoTuristico pontoTuristico=new PontoTuristico(id,titulo,descricao,texto,idTab);
+
+            PontoTuristico pontoTuristico = new PontoTuristico( id , titulo, descricao, texto,idTab);
             lista.add(pontoTuristico);
         }
         return lista;
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_IGREJASM, new String[]{"id", "titulo", "descricao", "texto","idTab"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MUSEUS, new String[]{"id", "titulo", "descricao", "texto","idTab"},
                 null, null, null, null, null);
 
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();

@@ -19,14 +19,11 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Criando a Tabela.
-        db.execSQL(SQL_TBL_PONTO_MUSEUST);
-        db.execSQL(SQL_TBL_PONTO_IGREJASM);
-        db.execSQL(SQL_TBL_PONTO_PONTES);
-        db.execSQL(SQL_TBL_PONTO_MERCADOS);
-        db.execSQL(SQL_TBL_PONTO_ARTESANATOS);
-        db.execSQL(SQL_TBL_PONTO_PARQUESP);
+        db.execSQL(SQL_TBL_PONTO_IGREJAS);
+        db.execSQL(SQL_TBL_PONTO_MUSEUS);
+        db.execSQL(SQL_TBL_PONTO_PARQUESPRACAS);
         db.execSQL(SQL_TBL_PONTO_PRAIAS);
-        db.execSQL(SQL_TBL_PONTO_BARESR);
+        db.execSQL(SQL_TBL_PONTO_BARESREST);
 
         //Inserindo os Campos..
 
@@ -36,11 +33,6 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Museus.MUSEU4);
         db.execSQL(Museus.MUSEU5);
 
-        db.execSQL(Mercados.MERCADO1);
-        db.execSQL(Mercados.MERCADO2);
-        db.execSQL(Mercados.MERCADO3);
-
-        /*
         db.execSQL(Igrejas.IGREJA1);
         db.execSQL(Igrejas.IGREJA2);
         db.execSQL(Igrejas.IGREJA3);
@@ -48,26 +40,21 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Igrejas.IGREJA5);
         db.execSQL(Igrejas.IGREJA6);
         db.execSQL(Igrejas.IGREJA7);
-
-        db.execSQL(Artesanatos.ARTESANATO1);
-        db.execSQL(Artesanatos.ARTESANATO2);
-        db.execSQL(Artesanatos.ARTESANATO3);
-        db.execSQL(Artesanatos.ARTESANATO4);
-        db.execSQL(Artesanatos.ARTESANATO5);
-
+        db.execSQL(Igrejas.IGREJA8);
+        db.execSQL(Igrejas.IGREJA9);
+        db.execSQL(Igrejas.IGREJA10);
+        db.execSQL(Igrejas.IGREJA11);
+        db.execSQL(Igrejas.IGREJA12);
+        db.execSQL(Igrejas.IGREJA13);
+        db.execSQL(Igrejas.IGREJA14);
+        db.execSQL(Igrejas.IGREJA15);
+        /*
         db.execSQL(Praias.PRAIA1);
         db.execSQL(Praias.PRAIA2);
         db.execSQL(Praias.PRAIA3);
         db.execSQL(Praias.PRAIA4);
         db.execSQL(Praias.PRAIA5);
         */
-
-        db.execSQL(Pontes.PONTE1);
-        db.execSQL(Pontes.PONTE2);
-        db.execSQL(Pontes.PONTE3);
-        db.execSQL(Pontes.PONTE4);
-        db.execSQL(Pontes.PONTE5);
-        db.execSQL(Pontes.PONTE6);
 
     }
 
@@ -77,9 +64,9 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
     }
 
     //Criação da Tabela Ponto Museus e Teatros.-------------------
-    public static String TBL_PONTO_MUSEUST= "tbl_pontoMuseusT";
-    private static String SQL_TBL_PONTO_MUSEUST =
-            "CREATE TABLE tbl_pontoMuseusT(" +
+    public static String TBL_PONTO_MUSEUS= "tbl_pontoMuseus";
+    private static String SQL_TBL_PONTO_MUSEUS =
+            "CREATE TABLE tbl_pontoMuseus(" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "titulo TEXT," +
                     "descricao TEXT," +
@@ -90,52 +77,10 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
                     ");";
     // ----------------------------------------------------
 
-    //Criação da Tabela Ponto Igrejas e Monumentos.-------------------
-    public static String TBL_PONTO_IGREJASM= "tbl_pontoIgrejasM";
-    private static String SQL_TBL_PONTO_IGREJASM =
-            "CREATE TABLE tbl_pontoIgrejasM(" +
-                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "titulo TEXT," +
-                    "descricao TEXT," +
-                    "texto TEXT," +
-                    "latitude REAL," +
-                    "longitude REAL," +
-                    "idTab INTEGER"+
-                    ");";
-    // ----------------------------------------------------
-
-    //Criação da Tabela Ponto Pontes.-------------------
-    public static String TBL_PONTO_PONTES= "tbl_pontoPontes";
-    private static String SQL_TBL_PONTO_PONTES =
-            "CREATE TABLE tbl_pontoPontes(" +
-                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "titulo TEXT," +
-                    "descricao TEXT," +
-                    "texto TEXT," +
-                    "latitude REAL," +
-                    "longitude REAL," +
-                    "idTab INTEGER"+
-                    ");";
-    // ----------------------------------------------------
-
-    //Criação da Tabela Ponto Mercados.-------------------
-    public static String TBL_PONTO_MERCADOS= "tbl_pontoMercados";
-    private static String SQL_TBL_PONTO_MERCADOS =
-            "CREATE TABLE tbl_pontoMercados(" +
-                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "titulo TEXT," +
-                    "descricao TEXT," +
-                    "texto TEXT," +
-                    "latitude REAL," +
-                    "longitude REAL," +
-                    "idTab INTEGER" +
-                    ");";
-    // ----------------------------------------------------
-
-    //Criação da Tabela Ponto Artesanatos.-------------------
-    public static String TBL_PONTO_ARTESANATOS= "tbl_pontoArtesanatos";
-    private static String SQL_TBL_PONTO_ARTESANATOS =
-            "CREATE TABLE tbl_pontoArtesanatos(" +
+    //Criação da Tabela Ponto igrejas e Monumentos.-------------------
+    public static String TBL_PONTO_IGREJAS= "tbl_pontoIgrejas";
+    private static String SQL_TBL_PONTO_IGREJAS =
+            "CREATE TABLE tbl_pontoIgrejas(" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "titulo TEXT," +
                     "descricao TEXT," +
@@ -148,9 +93,9 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
 
 
     //Criação da Tabela Ponto Parques e Praças.-------------------
-    public static String TBL_PONTO_PARQUESP= "tbl_pontoParquesP";
-    private static String SQL_TBL_PONTO_PARQUESP =
-            "CREATE TABLE tbl_pontoParquesP(" +
+    public static String TBL_PONTO_PARQUESPRACAS= "tbl_pontoParquesPracas";
+    private static String SQL_TBL_PONTO_PARQUESPRACAS =
+            "CREATE TABLE tbl_pontoParquesPracas(" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "titulo TEXT," +
                     "descricao TEXT," +
@@ -176,9 +121,9 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
     // ----------------------------------------------------
 
     //Criação da Tabela Ponto Bares e Restaurantes.-------------------
-    public static String TBL_PONTO_BARESR= "tbl_pontoBaresR";
-    private static String SQL_TBL_PONTO_BARESR =
-            "CREATE TABLE tbl_pontoBaresR(" +
+    public static String TBL_PONTO_BARESREST= "tbl_pontoBaresRest";
+    private static String SQL_TBL_PONTO_BARESREST =
+            "CREATE TABLE tbl_pontoBaresRest(" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "titulo TEXT," +
                     "descricao TEXT," +

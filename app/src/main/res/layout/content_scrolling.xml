@@ -43,13 +43,6 @@
             android:textColor="#000000"
             android:textSize="@dimen/texto_conteudo" />
 
-
-
-
     </LinearLayout>
-
-
-
-
 
 </android.support.v4.widget.NestedScrollView>

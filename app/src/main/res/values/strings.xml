@@ -4,5 +4,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Igrejas">Igrejas</string>
     <string name="MsgVazia">dados não encontrado.</string>
+    <string name="Museus">Museus</string>
+    <string name="ParquesPracas">Parques e Praças</string>
+    <string name="Praias">Praias</string>
+    <string name="BaresRest">Bares e Restaurantes</string>
+    <string name="GuiaMove">Guia Move</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

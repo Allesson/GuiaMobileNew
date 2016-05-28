@@ -13,11 +13,11 @@ import br.com.guiamobile.model.PontoTuristicoOpenHelper;
 /**
  * Created by Gilberto on 27/04/2016.
  */
-public class PontoBaresRRepositorio {
+public class PontoBaresRestRepositorio {
 
     private PontoTuristicoOpenHelper pontoTuristicoOpenHelper;
 
-    public PontoBaresRRepositorio(Context context) {
+    public PontoBaresRestRepositorio(Context context) {
         this.pontoTuristicoOpenHelper = new PontoTuristicoOpenHelper(context);
     }
 
@@ -47,7 +47,7 @@ public class PontoBaresRRepositorio {
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_BARESR, new String[]{"id", "titulo", "descricao", "texto","idTab"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_BARESREST, new String[]{"id", "titulo", "descricao", "texto","idTab"},
                 null, null, null, null, null);
 
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();

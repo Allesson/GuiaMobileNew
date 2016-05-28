@@ -51,6 +51,7 @@ import java.util.List;
 
 import br.com.guiamobile.R;
 import br.com.guiamobile.controller.ListaMapaRepositorio;
+import br.com.guiamobile.model.Praias;
 
 
 public class MainActivity extends AppCompatActivity
@@ -262,7 +263,19 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         switch (id) {
             case R.id.igreja:
-                startActivity(new Intent(this, Igrejas.class));
+                startActivity(new Intent(this, IgrejasActivity.class));
+                break;
+            case R.id.museu:
+                startActivity(new Intent(this, MuseuActivity.class));
+                break;
+            case R.id.parquesPracas:
+                startActivity(new Intent(this, ParquesPracasActivity.class));
+                break;
+            case R.id.praias:
+                startActivity(new Intent(this, PraiasActivity.class));
+                break;
+            case R.id.baresRest:
+                startActivity(new Intent(this, BaresRestActivity.class));
                 break;
         }
 
