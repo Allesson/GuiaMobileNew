@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FFE0B2"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.PontoEscolhidoActivity"
@@ -13,7 +14,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <include layout="@layout/toolbar_bootom"/>
+
         <TextView
+
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +43,13 @@
             android:textColor="#000000"
             android:textSize="@dimen/texto_conteudo" />
 
+
+
+
     </LinearLayout>
+
+
+
+
 
 </android.support.v4.widget.NestedScrollView>

@@ -7,33 +7,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
-
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
+import android.util.Log;
 import android.view.MenuItem;
-
+import android.view.View;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -41,9 +35,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-
 import com.google.android.gms.maps.model.LatLng;
-
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONObject;
@@ -69,6 +61,7 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private GoogleMap googleMap;
     private boolean localizacaoAjustada = false;
+    private FloatingActionMenu fab;
 
     private ListaMapaRepositorio listaMapaRepositorio;
 
@@ -89,22 +82,16 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.container, mMapFragment);
         fragmentTransaction.commit();
 
-
+/*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                mMapFragment = MapFragment.newInstance();
-                mMapFragment.getMapAsync(MainActivity.this);
-
-                fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.container, mMapFragment);
-                fragmentTransaction.commit();
 
             }
         });
-
+*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -119,6 +106,86 @@ public class MainActivity extends AppCompatActivity
         } else {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 9);
         }
+
+
+        fab = (FloatingActionMenu) findViewById(R.id.fab);
+        fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+            @Override
+            public void onMenuToggle(boolean opened) {
+
+
+            }
+        });
+
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("church");
+                }
+
+            }
+        });
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("museum");
+                }
+
+            }
+        });
+        FloatingActionButton fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("park");
+                }
+
+            }
+        });
+        FloatingActionButton fab4 = (FloatingActionButton) findViewById(R.id.fab4);
+        fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("art_gallery");
+                }
+
+            }
+        });
+        FloatingActionButton fab5 = (FloatingActionButton) findViewById(R.id.fab5);
+        fab5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("restaurant");
+                }
+
+            }
+        });
+
+        FloatingActionButton fab6 = (FloatingActionButton) findViewById(R.id.fab6);
+        fab6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (googleMap != null) {
+                    googleMap.clear();
+                    pesquisar("hospital");
+                }
+
+            }
+        });
+
+
     }
 
 
@@ -158,11 +225,13 @@ public class MainActivity extends AppCompatActivity
 
             Log.v("AAT", "location change");
             if (!localizacaoAjustada && googleMap != null) {
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 11));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 10));
                 localizacaoAjustada = true;
             }
         }
+        fab.setClosedOnTouchOutside(true);
     }
+
 
     @Override
     public void onConnectionSuspended(int i) {
@@ -173,7 +242,6 @@ public class MainActivity extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-
 
     //---------------------------------------------------------------------------------------------
     @Override
@@ -186,7 +254,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -194,7 +261,6 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
         switch (id) {
-
             case R.id.igreja:
                 startActivity(new Intent(this, Igrejas.class));
                 break;
@@ -208,7 +274,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -241,7 +306,7 @@ public class MainActivity extends AppCompatActivity
 
             StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
             sb.append("location=" + latitude + "," + longitude);
-            sb.append("&radius=20000"); // 20km
+            sb.append("&radius=10000");
             sb.append("&types=" + type);
             sb.append("&sensor=false");
             sb.append("&language=pt-BR");
@@ -288,7 +353,6 @@ public class MainActivity extends AppCompatActivity
 
         return data;
     }
-
 
     /**
      * Função para descarregar a URL e redirecionar para a próxima tarefa de exibir os ponteiros no mapa

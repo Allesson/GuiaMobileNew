@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardBackgroundColor="#ECEFF1"
+    app:cardBackgroundColor="#FFE0B2"
     app:cardCornerRadius="8dp"
     app:cardElevation="5dp"
     app:cardPreventCornerOverlap="true"
@@ -25,16 +25,6 @@
                 app:civ_border_color="#000000"
                 app:civ_border_width="1dp" />
 
-            <!--   <ImageView
-                   android:id="@+id/imagem"
-                   android:layout_width="119dp"
-                   android:layout_height="104dp"
-                   android:layout_alignParentTop="true"
-                   android:layout_marginLeft="10px"
-                   android:layout_marginTop="10px"
-                   android:scaleType="centerCrop"
-                   android:src="@mipmap/ic_launcher" />
-   -->
         </LinearLayout>
 
         <LinearLayout

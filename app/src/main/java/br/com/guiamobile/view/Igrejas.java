@@ -66,6 +66,7 @@ public class Igrejas extends AppCompatActivity {
         SearchView sv = new SearchView(this);
         sv.setOnQueryTextListener(new SearchFiltro());
 
+
         MenuItem pesquisa = menu.add(0, 0, 0, "Pesquisa");
         pesquisa.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         pesquisa.setActionView(sv);

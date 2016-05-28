@@ -40,6 +40,9 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
         texto.setText(pontoTuristico.getPontoTuristico());
         pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID(), pontoTuristico.getIdTab());
 
+        Toolbar toolbar_ponto_turistico = (Toolbar) findViewById(R.id.toolbar_ponto_turistico);
+
+        toolbar_ponto_turistico.inflateMenu(R.menu.menu_ponto_historio);
 
     }
 }

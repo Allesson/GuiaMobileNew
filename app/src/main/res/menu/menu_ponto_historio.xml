@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/como_chegar"
+            android:icon="@drawable/ic_gps"
+            android:title="como_chegar"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/compartilhar"
+            android:icon="@drawable/ic_compartilhar"
+            android:title="Compartilhar"
+            app:showAsAction="always" />
+
+
+    </group>
+
+
+</menu>
