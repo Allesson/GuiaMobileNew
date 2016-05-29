@@ -37,13 +37,6 @@ public class ListaMapaRepositorio {
         return listar(cursor);
     }
 
-    public List<PontoTuristico> listarParques() {
-        SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor = db.query(PontoTuristicoOpenHelper.TBL_PONTO_PARQUESPRACAS, new String[]{"titulo", "latitude", "longitude"},
-                null, null, null, null, null);
-
-        return listar(cursor);
-    }
 
     public List<PontoTuristico> listarPraias() {
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
@@ -53,13 +46,6 @@ public class ListaMapaRepositorio {
         return listar(cursor);
     }
 
-    public List<PontoTuristico> listarBares() {
-        SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor = db.query(PontoTuristicoOpenHelper.TBL_PONTO_BARESREST, new String[]{"titulo", "latitude", "longitude"},
-                null, null, null, null, null);
-
-        return listar(cursor);
-    }
 
     public List<PontoTuristico> listar(Cursor cursor) {
 

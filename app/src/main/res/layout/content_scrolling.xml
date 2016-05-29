@@ -17,22 +17,6 @@
         <include layout="@layout/toolbar_bootom"/>
 
         <TextView
-
-            android:id="@+id/titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10px"
-            android:layout_marginLeft="30px"
-            android:layout_marginRight="30px"
-            android:layout_marginTop="30px"
-            android:gravity="center"
-            android:text="Titulo"
-            android:textColor="#000000"
-            android:textSize="@dimen/texto_titulo"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/texto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

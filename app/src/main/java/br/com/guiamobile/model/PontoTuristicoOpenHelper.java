@@ -21,9 +21,7 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         // Criando a Tabela.
         db.execSQL(SQL_TBL_PONTO_IGREJAS);
         db.execSQL(SQL_TBL_PONTO_MUSEUS);
-        db.execSQL(SQL_TBL_PONTO_PARQUESPRACAS);
         db.execSQL(SQL_TBL_PONTO_PRAIAS);
-        db.execSQL(SQL_TBL_PONTO_BARESREST);
 
         //Inserindo os Campos..
 
@@ -92,19 +90,6 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
     // ----------------------------------------------------
 
 
-    //Criação da Tabela Ponto Parques e Praças.-------------------
-    public static String TBL_PONTO_PARQUESPRACAS= "tbl_pontoParquesPracas";
-    private static String SQL_TBL_PONTO_PARQUESPRACAS =
-            "CREATE TABLE tbl_pontoParquesPracas(" +
-                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "titulo TEXT," +
-                    "descricao TEXT," +
-                    "texto TEXT," +
-                    "latitude REAL," +
-                    "longitude REAL," +
-                    "idTab INTEGER"+
-                    ");";
-    // ----------------------------------------------------
 
     //Criação da Tabela Ponto Praias.-------------------
     public static String TBL_PONTO_PRAIAS= "tbl_pontoPraias";
@@ -119,19 +104,6 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
                     "idTab INTEGER"+
                     ");";
     // ----------------------------------------------------
-
-    //Criação da Tabela Ponto Bares e Restaurantes.-------------------
-    public static String TBL_PONTO_BARESREST= "tbl_pontoBaresRest";
-    private static String SQL_TBL_PONTO_BARESREST =
-            "CREATE TABLE tbl_pontoBaresRest(" +
-                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                    "titulo TEXT," +
-                    "descricao TEXT," +
-                    "texto TEXT," +
-                    "latitude REAL," +
-                    "longitude REAL," +
-                    "idTab INTEGER"+
-                    ");";
 
 
 }

@@ -31,26 +31,17 @@ public class PontoMuseusRepositorio {
 
         String selectSQL = "SELECT * FROM tbl_pontoMuseus WHERE titulo LIKE '%" + busca + "%'";
         Cursor cursor = db.rawQuery(selectSQL, null);
-        List<PontoTuristico> lista = new ArrayList<>();
 
-        while (cursor.moveToNext()) {
-
-            Integer id = cursor.getInt(cursor.getColumnIndex("id"));
-            String titulo = cursor.getString(cursor.getColumnIndex("titulo"));
-            String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
-            String texto = cursor.getString(cursor.getColumnIndex("texto"));
-            Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
-
-            PontoTuristico pontoTuristico = new PontoTuristico( id , titulo, descricao, texto,idTab);
-            lista.add(pontoTuristico);
-        }
-        return lista;
+        return lista(cursor);
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MUSEUS, new String[]{"id", "titulo", "descricao", "texto","idTab"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_MUSEUS, new String[]{"id", "titulo", "descricao", "texto","latitude","longitude","idTab"},
                 null, null, null, null, null);
+        return lista(cursor);
+    }
 
+    public List<PontoTuristico> lista(Cursor cursor){
         List<PontoTuristico>listaTuristica=new ArrayList<PontoTuristico>();
 
         while(cursor.moveToNext()){
@@ -59,8 +50,10 @@ public class PontoMuseusRepositorio {
             String titulo=cursor.getString(cursor.getColumnIndex("titulo"));
             String descricao=cursor.getString(cursor.getColumnIndex("descricao"));
             String texto=cursor.getString(cursor.getColumnIndex("texto"));
+            float latitude=cursor.getFloat(cursor.getColumnIndex("latitude"));
+            float longitude=cursor.getFloat(cursor.getColumnIndex("longitude"));
             Integer idTab=cursor.getInt(cursor.getColumnIndex("idTab"));
-            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto,idTab);
+            PontoTuristico lugares=new PontoTuristico(id,titulo,descricao,texto,latitude,longitude,idTab);
             listaTuristica.add(lugares);
         }
         return listaTuristica;

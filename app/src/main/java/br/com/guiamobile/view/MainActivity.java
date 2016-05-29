@@ -268,14 +268,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.museu:
                 startActivity(new Intent(this, MuseuActivity.class));
                 break;
-            case R.id.parquesPracas:
-                startActivity(new Intent(this, ParquesPracasActivity.class));
-                break;
             case R.id.praias:
                 startActivity(new Intent(this, PraiasActivity.class));
-                break;
-            case R.id.baresRest:
-                startActivity(new Intent(this, BaresRestActivity.class));
                 break;
         }
 

@@ -27,12 +27,14 @@ public class PontoTuristico extends Activity implements Serializable {
     private Integer idTab;
     private float latitude, longitude;
 
-    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico, Integer idTab) {
+    public PontoTuristico(Integer pontoTuristicoID, String titulo, String descricao, String pontoTuristico,float latitude,float longitude,Integer idTab) {
         this.pontoTuristicoID = pontoTuristicoID;
         this.titulo = titulo;
         this.descricao = descricao;
         this.pontoTuristico = pontoTuristico;
         this.idTab = idTab;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
     public PontoTuristico(String titulo, float latitude, float longitude){
@@ -103,10 +105,49 @@ public class PontoTuristico extends Activity implements Serializable {
             case 1:
             switch (id) {
                 case 1:
-                    imageView.setImageResource(R.drawable.ic_museu);
+                    imageView.setImageResource(R.drawable.soledade);
                     break;
                 case 2:
-                    imageView.setImageResource(R.drawable.m_c_recife);
+                    imageView.setImageResource(R.drawable.penha);
+                    break;
+                case 3:
+                    imageView.setImageResource(R.drawable.carmo);
+                    break;
+                case 4:
+                    imageView.setImageResource(R.drawable.santissimo_santo_antonio);
+                    break;
+                case 5:
+                    imageView.setImageResource(R.drawable.madre_deus);
+                    break;
+                case 6:
+                    imageView.setImageResource(R.drawable.martirios);
+                    break;
+                case 7:
+                    imageView.setImageResource(R.drawable.salinas);
+                    break;
+                case 8:
+                    imageView.setImageResource(R.drawable.terco);
+                    break;
+                case 9:
+                    imageView.setImageResource(R.drawable.pretos);
+                    break;
+                case 10:
+                    imageView.setImageResource(R.drawable.pilar);
+                    break;
+                case 11:
+                    imageView.setImageResource(R.drawable.capunga);
+                    break;
+                case 12:
+                    imageView.setImageResource(R.drawable.santo_antonio);
+                    break;
+                case 13:
+                    imageView.setImageResource(R.drawable.sao_felix);
+                    break;
+                case 14:
+                    imageView.setImageResource(R.drawable.dourada);
+                    break;
+                case 15:
+                    imageView.setImageResource(R.drawable.clerigos);
                     break;
             }
                 break;
