@@ -26,12 +26,6 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
 
         //Inserindo os Campos..
 
-        db.execSQL(Museus.MUSEU1);
-        db.execSQL(Museus.MUSEU2);
-        db.execSQL(Museus.MUSEU3);
-        db.execSQL(Museus.MUSEU4);
-        db.execSQL(Museus.MUSEU5);
-
         db.execSQL(Igrejas.IGREJA1);
         db.execSQL(Igrejas.IGREJA2);
         db.execSQL(Igrejas.IGREJA3);
@@ -47,6 +41,18 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Igrejas.IGREJA13);
         db.execSQL(Igrejas.IGREJA14);
         db.execSQL(Igrejas.IGREJA15);
+
+        db.execSQL(Museus.MUSEU1);
+        db.execSQL(Museus.MUSEU2);
+        db.execSQL(Museus.MUSEU3);
+        db.execSQL(Museus.MUSEU4);
+        db.execSQL(Museus.MUSEU5);
+        db.execSQL(Museus.MUSEU6);
+        db.execSQL(Museus.MUSEU7);
+        db.execSQL(Museus.MUSEU8);
+        db.execSQL(Museus.MUSEU9);
+        db.execSQL(Museus.MUSEU10);
+        db.execSQL(Museus.MUSEU11);
 
         db.execSQL(Pontes.PONTE1);
         db.execSQL(Pontes.PONTE2);
