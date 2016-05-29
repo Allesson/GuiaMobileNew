@@ -56,7 +56,7 @@
             android:src="@drawable/ic_policia"
             fab:fab_colorNormal="@color/colorFAB"
             fab:fab_colorPressed="@color/colorFABPressed"
-            fab:fab_label="Polícia"
+            fab:fab_label="Polícia e Bombeiro"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -73,10 +73,10 @@
             android:id="@+id/fab4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_galeira_arte"
+            android:src="@drawable/ic_transporte"
             fab:fab_colorNormal="@color/colorFAB"
             fab:fab_colorPressed="@color/colorFABPressed"
-            fab:fab_label="Galeria de Arte"
+            fab:fab_label="Transporte"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -86,7 +86,7 @@
             android:src="@drawable/ic_bares"
             fab:fab_colorNormal="@color/colorFAB"
             fab:fab_colorPressed="@color/colorFABPressed"
-            fab:fab_label="Bares e Restaurantes"
+            fab:fab_label="Bares, Restaurantes e Food"
             fab:fab_size="mini" />
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab6"
@@ -95,7 +95,7 @@
             android:src="@drawable/ic_hospital"
             fab:fab_colorNormal="@color/colorFAB"
             fab:fab_colorPressed="@color/colorFABPressed"
-            fab:fab_label="Hospital"
+            fab:fab_label="Hospitais e Farmácias"
             fab:fab_size="mini" />
 
 

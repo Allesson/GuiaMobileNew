@@ -84,16 +84,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.container, mMapFragment);
         fragmentTransaction.commit();
 
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -111,6 +101,7 @@ public class MainActivity extends AppCompatActivity
 
 
         fab = (FloatingActionMenu) findViewById(R.id.fab);
+
         fab.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
             @Override
             public void onMenuToggle(boolean opened) {
@@ -127,6 +118,7 @@ public class MainActivity extends AppCompatActivity
                     googleMap.clear();
                     pesquisar("atm");
                     pesquisar("bank");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
@@ -138,6 +130,8 @@ public class MainActivity extends AppCompatActivity
                 if (googleMap != null) {
                     googleMap.clear();
                     pesquisar("police");
+                    pesquisar("fire_station");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
@@ -149,6 +143,7 @@ public class MainActivity extends AppCompatActivity
                 if (googleMap != null) {
                     googleMap.clear();
                     pesquisar("park");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
@@ -159,7 +154,11 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 if (googleMap != null) {
                     googleMap.clear();
-                    pesquisar("art_gallery");
+                    pesquisar("subway_station");
+                    pesquisar("taxi_stand");
+                    pesquisar("train_station");
+                    pesquisar("airport");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
@@ -172,6 +171,9 @@ public class MainActivity extends AppCompatActivity
                     googleMap.clear();
                     pesquisar("restaurant");
                     pesquisar("bar");
+                    pesquisar("food");
+                    pesquisar("cafe");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
@@ -184,12 +186,15 @@ public class MainActivity extends AppCompatActivity
                 if (googleMap != null) {
                     googleMap.clear();
                     pesquisar("hospital");
+                    pesquisar("pharmacy");
+                    fab.setClosedOnTouchOutside(true);
                 }
 
             }
         });
 
-
+        fab.setClosedOnTouchOutside(true);
+        fab.close(true);
     }
 
 
@@ -330,7 +335,7 @@ public class MainActivity extends AppCompatActivity
                 localizacaoAjustada = true;
             }
 
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 11));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 10));
         } catch (Exception e) {
 
         }
@@ -446,7 +451,7 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(List<HashMap<String, String>> list) {
 
             try {
-                googleMap.clear();
+                //  googleMap.clear();
 
                 for (int i = 0; i < list.size(); i++) {
                     MarkerOptions markerOptions = new MarkerOptions();
