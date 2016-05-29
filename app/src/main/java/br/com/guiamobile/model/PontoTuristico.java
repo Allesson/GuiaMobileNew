@@ -105,49 +105,49 @@ public class PontoTuristico extends Activity implements Serializable {
             case 1:
             switch (id) {
                 case 1:
-                    imageView.setImageResource(R.drawable.soledade);
+                    imageView.setImageResource(R.drawable.i_soledade);
                     break;
                 case 2:
-                    imageView.setImageResource(R.drawable.penha);
+                    imageView.setImageResource(R.drawable.i_penha);
                     break;
                 case 3:
-                    imageView.setImageResource(R.drawable.carmo);
+                    imageView.setImageResource(R.drawable.i_carmo);
                     break;
                 case 4:
-                    imageView.setImageResource(R.drawable.santissimo_santo_antonio);
+                    imageView.setImageResource(R.drawable.i_santissimo_santo_antonio);
                     break;
                 case 5:
-                    imageView.setImageResource(R.drawable.madre_deus);
+                    imageView.setImageResource(R.drawable.i_madre_deus);
                     break;
                 case 6:
-                    imageView.setImageResource(R.drawable.martirios);
+                    imageView.setImageResource(R.drawable.i_martirios);
                     break;
                 case 7:
-                    imageView.setImageResource(R.drawable.salinas);
+                    imageView.setImageResource(R.drawable.i_salinas);
                     break;
                 case 8:
-                    imageView.setImageResource(R.drawable.terco);
+                    imageView.setImageResource(R.drawable.i_terco);
                     break;
                 case 9:
-                    imageView.setImageResource(R.drawable.pretos);
+                    imageView.setImageResource(R.drawable.i_pretos);
                     break;
                 case 10:
-                    imageView.setImageResource(R.drawable.pilar);
+                    imageView.setImageResource(R.drawable.i_pilar);
                     break;
                 case 11:
-                    imageView.setImageResource(R.drawable.capunga);
+                    imageView.setImageResource(R.drawable.i_capunga);
                     break;
                 case 12:
-                    imageView.setImageResource(R.drawable.santo_antonio);
+                    imageView.setImageResource(R.drawable.i_santo_antonio);
                     break;
                 case 13:
-                    imageView.setImageResource(R.drawable.sao_felix);
+                    imageView.setImageResource(R.drawable.i_sao_felix);
                     break;
                 case 14:
-                    imageView.setImageResource(R.drawable.dourada);
+                    imageView.setImageResource(R.drawable.i_dourada);
                     break;
                 case 15:
-                    imageView.setImageResource(R.drawable.clerigos);
+                    imageView.setImageResource(R.drawable.i_clerigos);
                     break;
             }
                 break;
@@ -158,6 +158,18 @@ public class PontoTuristico extends Activity implements Serializable {
                         break;
                     case 2:
                         imageView.setImageResource(R.drawable.p_b_macedo);
+                        break;
+                    case 3:
+                        imageView.setImageResource(R.drawable.p_d_coelho);
+                        break;
+                    case 4:
+                        imageView.setImageResource(R.drawable.p_limoeiro);
+                        break;
+                    case 5:
+                        imageView.setImageResource(R.drawable.p_m_nassau);
+                        break;
+                    case 6:
+                        imageView.setImageResource(R.drawable.p_p_isabel);
                         break;
                 }
                 break;

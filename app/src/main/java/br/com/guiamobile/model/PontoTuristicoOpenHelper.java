@@ -21,6 +21,7 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         // Criando a Tabela.
         db.execSQL(SQL_TBL_PONTO_IGREJAS);
         db.execSQL(SQL_TBL_PONTO_MUSEUS);
+        db.execSQL(SQL_TBL_PONTO_PONTES);
         db.execSQL(SQL_TBL_PONTO_PRAIAS);
 
         //Inserindo os Campos..
@@ -46,6 +47,13 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Igrejas.IGREJA13);
         db.execSQL(Igrejas.IGREJA14);
         db.execSQL(Igrejas.IGREJA15);
+
+        db.execSQL(Pontes.PONTE1);
+        db.execSQL(Pontes.PONTE2);
+        db.execSQL(Pontes.PONTE3);
+        db.execSQL(Pontes.PONTE4);
+        db.execSQL(Pontes.PONTE5);
+        db.execSQL(Pontes.PONTE6);
         /*
         db.execSQL(Praias.PRAIA1);
         db.execSQL(Praias.PRAIA2);
@@ -87,9 +95,18 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
                     "longitude REAL," +
                     "idTab INTEGER"+
                     ");";
-    // ----------------------------------------------------
 
-
+    public static String TBL_PONTO_PONTES= "tbl_pontoPontes";
+    private static String SQL_TBL_PONTO_PONTES =
+            "CREATE TABLE tbl_pontoPontes(" +
+                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "titulo TEXT," +
+                    "descricao TEXT," +
+                    "texto TEXT," +
+                    "latitude REAL," +
+                    "longitude REAL," +
+                    "idTab INTEGER"+
+                    ");";
 
     //Criação da Tabela Ponto Praias.-------------------
     public static String TBL_PONTO_PRAIAS= "tbl_pontoPraias";
