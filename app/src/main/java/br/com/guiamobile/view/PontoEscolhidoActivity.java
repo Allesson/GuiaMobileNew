@@ -1,6 +1,7 @@
 package br.com.guiamobile.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +53,7 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.compartilhar:
-                        String msg = "Guia Mobile - Ponto Turistico" + "\n" + "Titulo: " + pontoTuristico.getTitulo() + "\n" + pontoTuristico.getPontoTuristico() +"\n" + getString(R.string.linkapp);
+                        String msg = "Guia Mobile - Ponto Turistico" + "\n" + "Titulo: " + pontoTuristico.getTitulo() + "\n" + pontoTuristico.getPontoTuristico() + "\n" + getString(R.string.linkapp);
                         Intent it = new Intent();
                         it.setAction(Intent.ACTION_SEND);
                         it.putExtra(Intent.EXTRA_TEXT, msg);
@@ -60,7 +61,9 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
                         startActivity(Intent.createChooser(it, msg));
                         break;
                     case R.id.como_chegar:
-                        Toast.makeText(PontoEscolhidoActivity.this, "Como Chegar", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                                Uri.parse("geo:0,0?q=" + pontoTuristico.getLatitude() + "," + pontoTuristico.getLongitude() + "(" + pontoTuristico.getTitulo() + ")"));
+                        startActivity(intent);
                         break;
                 }
                 return true;

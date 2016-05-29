@@ -314,22 +314,28 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        this.googleMap = googleMap;
+        try {
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+            this.googleMap = googleMap;
+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+            }
+            googleMap.setMyLocationEnabled(true);
+
+            SharedPreferences preferences = getSharedPreferences("SHARED", Context.MODE_PRIVATE);
+            double latitude = preferences.getFloat("lat", 0);
+            double longitude = preferences.getFloat("lng", 0);
+
+            if (latitude != 0 && longitude != 0) {
+                localizacaoAjustada = true;
+            }
+
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 11));
+        } catch (Exception e) {
 
         }
-        googleMap.setMyLocationEnabled(true);
-
-        SharedPreferences preferences = getSharedPreferences("SHARED", Context.MODE_PRIVATE);
-        double latitude = preferences.getFloat("lat", 0);
-        double longitude = preferences.getFloat("lng", 0);
-
-        if (latitude != 0 && longitude != 0) {
-            localizacaoAjustada = true;
-        }
-
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 11));
     }
 
     private void pesquisar(String buscar) {
@@ -444,19 +450,19 @@ public class MainActivity extends AppCompatActivity
             try {
                 googleMap.clear();
 
-            for (int i = 0; i < list.size(); i++) {
-                MarkerOptions markerOptions = new MarkerOptions();
-                HashMap<String, String> hmPlace = list.get(i);
+                for (int i = 0; i < list.size(); i++) {
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    HashMap<String, String> hmPlace = list.get(i);
 
-                double lat = Double.parseDouble(hmPlace.get("lat"));
-                double lng = Double.parseDouble(hmPlace.get("lng"));
-                String name = hmPlace.get("place_name");
-                String endereco = hmPlace.get("vicinity");
+                    double lat = Double.parseDouble(hmPlace.get("lat"));
+                    double lng = Double.parseDouble(hmPlace.get("lng"));
+                    String name = hmPlace.get("place_name");
+                    String endereco = hmPlace.get("vicinity");
 
-                LatLng latLng = new LatLng(lat, lng);
-                markerOptions.position(latLng);
-                markerOptions.title(name);
-                markerOptions.snippet(endereco);
+                    LatLng latLng = new LatLng(lat, lng);
+                    markerOptions.position(latLng);
+                    markerOptions.title(name);
+                    markerOptions.snippet(endereco);
 
                     googleMap.addMarker(markerOptions);
                 }
