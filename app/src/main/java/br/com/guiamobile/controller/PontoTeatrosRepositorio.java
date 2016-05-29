@@ -13,11 +13,11 @@ import br.com.guiamobile.model.PontoTuristicoOpenHelper;
 /**
  * Created by Gilberto on 27/04/2016.
  */
-public class PontoPraiasRepositorio {
+public class PontoTeatrosRepositorio {
 
     private PontoTuristicoOpenHelper pontoTuristicoOpenHelper;
 
-    public PontoPraiasRepositorio(Context context) {
+    public PontoTeatrosRepositorio(Context context) {
         this.pontoTuristicoOpenHelper = new PontoTuristicoOpenHelper(context);
     }
 
@@ -26,16 +26,16 @@ public class PontoPraiasRepositorio {
      * @param busca Rebe uma String.
      * @return Retorna um LIST<PontoTuristico> referente a String que foi passada como  paramento.
      */
-    public List<PontoTuristico> buscarPontoPraias(String busca) {
+    public List<PontoTuristico> buscarPontoTeatros(String busca) {
         SQLiteDatabase db = pontoTuristicoOpenHelper.getWritableDatabase();
 
-        String selectSQL = "SELECT * FROM tbl_pontoPraias WHERE titulo LIKE '%" + busca + "%'";
+        String selectSQL = "SELECT * FROM tbl_pontoteatros WHERE titulo LIKE '%" + busca + "%'";
         Cursor cursor = db.rawQuery(selectSQL, null);
         return lista(cursor);
     }
     public List<PontoTuristico> listar(){
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_PRAIAS, new String[]{"id", "titulo", "descricao", "texto","idTab"},
+        Cursor cursor=db.query(PontoTuristicoOpenHelper.TBL_PONTO_TEATROS, new String[]{"id", "titulo", "descricao", "texto","latitude","longitude","idTab"},
                 null, null, null, null, null);
         return lista(cursor);
     }

@@ -16,9 +16,9 @@
             android:icon="@drawable/ic_pontes"
             android:title="@string/Pontes" />
         <item
-            android:id="@+id/praias"
-            android:icon="@drawable/ic_praia"
-            android:title="@string/Praias" />
+            android:id="@+id/teatros"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/Teatros" />
     </group>
 
     <item android:title="Communicate">

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -54,7 +53,6 @@ import java.util.List;
 
 import br.com.guiamobile.R;
 import br.com.guiamobile.controller.ListaMapaRepositorio;
-import br.com.guiamobile.model.Praias;
 
 
 public class MainActivity extends AppCompatActivity
@@ -276,8 +274,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.pontes:
                 startActivity(new Intent(this, PontesActivity.class));
                 break;
-            case R.id.praias:
-                startActivity(new Intent(this, PraiasActivity.class));
+            case R.id.teatros:
+                startActivity(new Intent(this, TeatrosActivity.class));
                 break;
             case R.id.share:
                 String url = getString(R.string.linkapp);

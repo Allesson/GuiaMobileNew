@@ -57,7 +57,7 @@
                 android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />
         </activity>
 
-        <activity android:name=".view.PraiasActivity">
+        <activity android:name=".view.TeatrosActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="br.com.guiamobile.view.PontoEscolhidoActivity" />

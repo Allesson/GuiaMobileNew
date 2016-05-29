@@ -6,18 +6,16 @@
     <string name="MsgVazia">dados não encontrado.</string>
     <string name="Museus">Museus</string>
     <string name="ParquesPracas">Parques e Praças</string>
-    <string name="Praias">Praias</string>
     <string name="BaresRest">Bares e Restaurantes</string>
-    <string name="GuiaMove">Guia Move</string>
     <string name="igrejas">Igrejas</string>
     <string name="museus">Museus</string>
     <string name="parqueEpracas">Parques e  Praças</string>
-    <string name="praias">Praias</string>
     <string name="avalie">Avalie</string>
     <string name="compartilhar">Compartilhar app</string>
     <string name="linkapp">https://drive.google.com/open?id=0B9L_zsVwXRkwTUl4WFBkaFV6Umc</string>
     <string name="compartilhar_main">Olha o app sobre Guia Turístico que encontrei na Google Play. Baixa aí </string>
     <string name="erro_sem_internet">Erro: Não há conexão com a Internet</string>
     <string name="Pontes">Pontes</string>
+    <string name="Teatros">Teatros</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

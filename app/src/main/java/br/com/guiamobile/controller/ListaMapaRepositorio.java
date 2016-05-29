@@ -38,9 +38,9 @@ public class ListaMapaRepositorio {
     }
 
 
-    public List<PontoTuristico> listarPraias() {
+    public List<PontoTuristico> listarTeatros() {
         SQLiteDatabase db = this.pontoTuristicoOpenHelper.getWritableDatabase();
-        Cursor cursor = db.query(PontoTuristicoOpenHelper.TBL_PONTO_PRAIAS, new String[]{"titulo", "latitude", "longitude"},
+        Cursor cursor = db.query(PontoTuristicoOpenHelper.TBL_PONTO_TEATROS, new String[]{"titulo", "latitude", "longitude"},
                 null, null, null, null, null);
 
         return listar(cursor);

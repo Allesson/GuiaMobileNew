@@ -22,7 +22,7 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_TBL_PONTO_IGREJAS);
         db.execSQL(SQL_TBL_PONTO_MUSEUS);
         db.execSQL(SQL_TBL_PONTO_PONTES);
-        db.execSQL(SQL_TBL_PONTO_PRAIAS);
+        db.execSQL(SQL_TBL_PONTO_TEATROS);
 
         //Inserindo os Campos..
 
@@ -60,13 +60,14 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Pontes.PONTE4);
         db.execSQL(Pontes.PONTE5);
         db.execSQL(Pontes.PONTE6);
-        /*
-        db.execSQL(Praias.PRAIA1);
-        db.execSQL(Praias.PRAIA2);
-        db.execSQL(Praias.PRAIA3);
-        db.execSQL(Praias.PRAIA4);
-        db.execSQL(Praias.PRAIA5);
-        */
+
+        db.execSQL(Teatros.TEATRO1);
+        db.execSQL(Teatros.TEATRO2);
+        db.execSQL(Teatros.TEATRO3);
+        db.execSQL(Teatros.TEATRO4);
+        db.execSQL(Teatros.TEATRO5);
+        db.execSQL(Teatros.TEATRO6);
+
 
     }
 
@@ -114,10 +115,10 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
                     "idTab INTEGER"+
                     ");";
 
-    //Criação da Tabela Ponto Praias.-------------------
-    public static String TBL_PONTO_PRAIAS= "tbl_pontoPraias";
-    private static String SQL_TBL_PONTO_PRAIAS=
-            "CREATE TABLE tbl_pontoPraias(" +
+    //Criação da Tabela Ponto Teatros.-------------------
+    public static String TBL_PONTO_TEATROS= "tbl_pontoteatros";
+    private static String SQL_TBL_PONTO_TEATROS=
+            "CREATE TABLE tbl_pontoteatros(" +
                     "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                     "titulo TEXT," +
                     "descricao TEXT," +

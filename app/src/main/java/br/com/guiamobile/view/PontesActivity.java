@@ -45,6 +45,7 @@ public class PontesActivity extends AppCompatActivity {
         lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.Pontes);
 
         listaDeLugares = new ArrayList<>();
         pontoPontesRepositorio = new PontoPontesRepositorio(this);

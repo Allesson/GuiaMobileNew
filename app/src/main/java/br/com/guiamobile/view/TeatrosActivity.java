@@ -15,17 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.guiamobile.R;
-import br.com.guiamobile.controller.PontoPraiasRepositorio;
+import br.com.guiamobile.controller.PontoTeatrosRepositorio;
 import br.com.guiamobile.model.Adapter.RetornoBusca_Adapter;
 import br.com.guiamobile.model.PontoTuristico;
 
 /**
  * Created by Allesson on 27/05/2016.
  */
-public class PraiasActivity extends AppCompatActivity {
+public class TeatrosActivity extends AppCompatActivity {
     private static final int BUSCAR = 1;
     private ListView lista;
-    private PontoPraiasRepositorio pontoPraiasRepositorio;
+    private PontoTeatrosRepositorio pontoTeatrosRepositorio;
     private static final int PONTO_TURISTICO = 1;
     private LayoutInflater menuLayout;
     List<PontoTuristico> listaDeLugares;
@@ -41,10 +41,10 @@ public class PraiasActivity extends AppCompatActivity {
         lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.praias);
+        getSupportActionBar().setTitle(R.string.Teatros);
 
         listaDeLugares = new ArrayList<>();
-        pontoPraiasRepositorio = new PontoPraiasRepositorio(this);
+        pontoTeatrosRepositorio = new PontoTeatrosRepositorio(this);
 
         carregarLugares();
 
@@ -54,7 +54,7 @@ public class PraiasActivity extends AppCompatActivity {
                 PontoTuristico pontoEscolhido = listaDeLugares.get(position);
 
 
-                Intent intent = new Intent(PraiasActivity.this, PontoEscolhidoActivity.class);
+                Intent intent = new Intent(TeatrosActivity.this, PontoEscolhidoActivity.class);
                 intent.putExtra("PontoEscolhido", pontoEscolhido);
                 startActivity(intent);
             }
@@ -107,7 +107,7 @@ public class PraiasActivity extends AppCompatActivity {
 
 
     private void carregarLugares() {
-        listaDeLugares = pontoPraiasRepositorio.listar();
+        listaDeLugares = pontoTeatrosRepositorio.listar();
         adapter = new RetornoBusca_Adapter(this, listaDeLugares);
         this.lista.setAdapter(adapter);
     }
