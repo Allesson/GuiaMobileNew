@@ -46,7 +46,7 @@ public class IgrejasActivity extends AppCompatActivity {
         lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle(R.string.igrejas);
         listaDeLugares = new ArrayList<>();
         pontoIgrejasRepositorio = new PontoIgrejasRepositorio(this);
 

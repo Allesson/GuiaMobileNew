@@ -41,7 +41,7 @@ public class MuseuActivity extends AppCompatActivity {
         lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle(R.string.museus);
         listaDeLugares = new ArrayList<>();
         pontoMuseusRepositorio = new PontoMuseusRepositorio(this);
 

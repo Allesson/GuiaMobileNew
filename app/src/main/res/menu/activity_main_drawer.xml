@@ -20,4 +20,18 @@
             android:icon="@drawable/ic_praia"
             android:title="@string/Praias" />
     </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/compartilhar" />
+            <item
+                android:id="@+id/avaliar"
+                android:icon="@drawable/common_ic_googleplayservices"
+                android:title="@string/avalie" />
+        </menu>
+    </item>
+
 </menu>

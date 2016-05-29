@@ -6,8 +6,11 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.location.Location;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -124,7 +127,8 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 if (googleMap != null) {
                     googleMap.clear();
-                    pesquisar("church");
+                    pesquisar("atm");
+                    pesquisar("bank");
                 }
 
             }
@@ -135,7 +139,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 if (googleMap != null) {
                     googleMap.clear();
-                    pesquisar("museum");
+                    pesquisar("police");
                 }
 
             }
@@ -169,6 +173,7 @@ public class MainActivity extends AppCompatActivity
                 if (googleMap != null) {
                     googleMap.clear();
                     pesquisar("restaurant");
+                    pesquisar("bar");
                 }
 
             }
@@ -270,6 +275,28 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.praias:
                 startActivity(new Intent(this, PraiasActivity.class));
+                break;
+            case R.id.share:
+                String url = getString(R.string.linkapp);
+                String mensagem = getString(R.string.compartilhar_main) + "\n" + url;
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, mensagem);
+                intent.setType("text/plain");
+                startActivity(Intent.createChooser(intent, mensagem));
+                break;
+
+            case R.id.avaliar:
+                try {
+                    PackageInfo pInfo = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0);
+                    String link = "https://play.google.com/store/apps/details?id=" + pInfo.packageName;
+                    Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                    startActivity(it);
+
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 break;
         }
 
@@ -411,7 +438,8 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(List<HashMap<String, String>> list) {
 
-            googleMap.clear();
+            try {
+                googleMap.clear();
 
             for (int i = 0; i < list.size(); i++) {
                 MarkerOptions markerOptions = new MarkerOptions();
@@ -427,7 +455,10 @@ public class MainActivity extends AppCompatActivity
                 markerOptions.title(name);
                 markerOptions.snippet(endereco);
 
-                googleMap.addMarker(markerOptions);
+                    googleMap.addMarker(markerOptions);
+                }
+            } catch (Exception e) {
+                Toast.makeText(MainActivity.this, getString(R.string.erro_sem_internet), Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -41,6 +41,7 @@ public class PraiasActivity extends AppCompatActivity {
         lista.setEmptyView(findViewById(R.id.msg_lista_vazia));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.praias);
 
         listaDeLugares = new ArrayList<>();
         pontoPraiasRepositorio = new PontoPraiasRepositorio(this);
