@@ -22,14 +22,11 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
 
     private TextView texto;
     private PontoTuristico pontoTuristico;
-    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-
-        mediaPlayer = MediaPlayer.create(this, R.raw.teste);
 
         pontoTuristico = (PontoTuristico) getIntent().getSerializableExtra("PontoEscolhido");
 
@@ -73,20 +70,5 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        toolbar_ponto_turistico.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mediaPlayer.start();
-            }
-        });
-
-        toolbar_ponto_turistico.findViewById(R.id.pausa).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mediaPlayer.pause();
-            }
-        });
-
     }
 }

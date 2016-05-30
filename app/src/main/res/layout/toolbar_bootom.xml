@@ -6,17 +6,4 @@
     android:background="#FFE0B2"
     app:popupTheme="@style/AppTheme.PopupOverlay">
 
-
-    <ImageButton
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_play" />
-
-    <ImageButton
-        android:id="@+id/pausa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_pausa" />
-
 </android.support.v7.widget.Toolbar>
