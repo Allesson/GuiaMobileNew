@@ -17,5 +17,6 @@
     <string name="erro_sem_internet">Erro: Não há conexão com a Internet</string>
     <string name="Pontes">Pontes</string>
     <string name="Teatros">Teatros</string>
+    <string name="title_activity_splash">Guia Move</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
