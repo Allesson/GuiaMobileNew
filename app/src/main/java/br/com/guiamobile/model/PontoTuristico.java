@@ -264,6 +264,22 @@ public class PontoTuristico extends Activity implements Serializable {
                         break;
                 }
                 break;
+            case 6:
+                switch (id) {
+                    case 1:
+                        imageView.setImageResource(R.drawable.a_c_cultura);
+                        break;
+                    case 2:
+                        imageView.setImageResource(R.drawable.a_m_s_jose);
+                        break;
+                    case 3:
+                        imageView.setImageResource(R.drawable.a_c_a_pernambuco);
+                        break;
+                    case 4:
+                        imageView.setImageResource(R.drawable.a_f_b_jesus);
+                        break;
+                }
+                break;
         }
     }
 }

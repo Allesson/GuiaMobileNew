@@ -20,9 +20,9 @@
             android:id="@+id/texto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="25dp"
             android:text="A Capela Dourada, consagrada como um dos monumentos barrocos mais importantes do Brasil, possui cobertura de finas camadas de ouro de cima a baixo. Sua construção foi iniciada no fim do século XVII e finalizada em 1724. A capela também possui uma bela imagem de Cristo Crucificado e belas pinturas em seu forro."
             android:textColor="#000000"
             android:textSize="@dimen/texto_conteudo" />

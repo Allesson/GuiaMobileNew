@@ -114,14 +114,4 @@ public class MonumentosActivity extends AppCompatActivity {
         adapter = new RetornoBusca_Adapter(this, listaDeLugares);
         this.lista.setAdapter(adapter);
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

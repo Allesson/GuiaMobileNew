@@ -6,8 +6,8 @@
     <color name="grey">#ddd</color>
     <color name="black">#000</color>
 
-    <color name="colorPrimary">#F57C00</color>
-    <color name="colorPrimaryDark">#FF9800</color>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#F57C00</color>
     <color name="colorPrimarytext">#212121</color>
     <color name="colorSecondText">#999</color>
     <color name="coloLink">#1ea4f7</color>
