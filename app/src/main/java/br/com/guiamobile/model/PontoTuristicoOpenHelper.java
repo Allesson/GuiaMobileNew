@@ -70,6 +70,13 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Teatros.TEATRO5);
         db.execSQL(Teatros.TEATRO6);
 
+        db.execSQL(Monumentos.MONUMENTOS1);
+        db.execSQL(Monumentos.MONUMENTOS2);
+        db.execSQL(Monumentos.MONUMENTOS3);
+        db.execSQL(Monumentos.MONUMENTOS4);
+        db.execSQL(Monumentos.MONUMENTOS5);
+        db.execSQL(Monumentos.MONUMENTOS6);
+        db.execSQL(Monumentos.MONUMENTOS7);
 
     }
 

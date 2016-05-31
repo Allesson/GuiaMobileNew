@@ -102,6 +102,8 @@ public class PontoTuristico extends Activity implements Serializable {
                 .duration(700)
                 .playOn(imageView);
         switch (idTab){
+
+            //Igrejaas
             case 1:
             switch (id) {
                 case 1:
@@ -152,6 +154,7 @@ public class PontoTuristico extends Activity implements Serializable {
             }
                 break;
 
+            //Museus
             case 2:
                 switch (id) {
                     case 1:
@@ -189,6 +192,8 @@ public class PontoTuristico extends Activity implements Serializable {
                         break;
                 }
                 break;
+
+            //Pontes
             case 3:
                 switch (id) {
                     case 1:
@@ -211,6 +216,7 @@ public class PontoTuristico extends Activity implements Serializable {
                         break;
                 }
                 break;
+            //Teatros
             case 4:
                 switch (id) {
                     case 1:
@@ -230,6 +236,31 @@ public class PontoTuristico extends Activity implements Serializable {
                         break;
                     case 6:
                         imageView.setImageResource(R.drawable.t_r_mar);
+                        break;
+                }
+                break;
+            case 5:
+                switch (id) {
+                    case 1:
+                        imageView.setImageResource(R.drawable.mo_c_princesa);
+                        break;
+                    case 2:
+                        imageView.setImageResource(R.drawable.mo_e_f_brennand);
+                        break;
+                    case 3:
+                        imageView.setImageResource(R.drawable.mo_p_justica);
+                        break;
+                    case 4:
+                        imageView.setImageResource(R.drawable.mo_r_antigo);
+                        break;
+                    case 5:
+                        imageView.setImageResource(R.drawable.mo_g_p_leitura);
+                        break;
+                    case 6:
+                        imageView.setImageResource(R.drawable.mo_e_central);
+                        break;
+                    case 7:
+                        imageView.setImageResource(R.drawable.mo_m_zero);
                         break;
                 }
                 break;

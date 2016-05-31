@@ -17,15 +17,15 @@
             android:title="@string/Pontes" />
         <item
             android:id="@+id/teatros"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_teatros"
             android:title="@string/Teatros" />
         <item
             android:id="@+id/monumentos"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_monumentos"
             android:title="@string/Monumentos" />
         <item
             android:id="@+id/artesanatos"
-            android:icon="@drawable/ic_museu"
+            android:icon="@drawable/ic_artesanatos"
             android:title="@string/Artesanatos" />
     </group>
 
