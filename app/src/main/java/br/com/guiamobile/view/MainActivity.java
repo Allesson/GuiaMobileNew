@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity
                     pesquisar("atm");
                     pesquisar("bank");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
 
             }
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity
                     pesquisar("police");
                     pesquisar("fire_station");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
 
             }
@@ -145,6 +147,7 @@ public class MainActivity extends AppCompatActivity
                     googleMap.clear();
                     pesquisar("park");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
 
             }
@@ -160,6 +163,7 @@ public class MainActivity extends AppCompatActivity
                     pesquisar("train_station");
                     pesquisar("airport");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
 
             }
@@ -175,6 +179,7 @@ public class MainActivity extends AppCompatActivity
                     pesquisar("food");
                     pesquisar("cafe");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
 
             }
@@ -189,8 +194,8 @@ public class MainActivity extends AppCompatActivity
                     pesquisar("hospital");
                     pesquisar("pharmacy");
                     fab.setClosedOnTouchOutside(true);
+                    fab.close(true);
                 }
-
             }
         });
 
