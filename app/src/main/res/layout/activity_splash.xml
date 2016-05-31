@@ -10,6 +10,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/guia_move" />
+        android:src="@drawable/ic_guia" />
 
 </LinearLayout>

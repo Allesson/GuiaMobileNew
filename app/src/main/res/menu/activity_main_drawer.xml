@@ -19,6 +19,14 @@
             android:id="@+id/teatros"
             android:icon="@drawable/ic_museu"
             android:title="@string/Teatros" />
+        <item
+            android:id="@+id/monumentos"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/Monumentos" />
+        <item
+            android:id="@+id/artesanatos"
+            android:icon="@drawable/ic_museu"
+            android:title="@string/Artesanatos" />
     </group>
 
     <item android:title="Communicate">

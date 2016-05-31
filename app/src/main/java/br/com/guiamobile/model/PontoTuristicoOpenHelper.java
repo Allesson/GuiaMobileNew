@@ -23,6 +23,8 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_TBL_PONTO_MUSEUS);
         db.execSQL(SQL_TBL_PONTO_PONTES);
         db.execSQL(SQL_TBL_PONTO_TEATROS);
+        db.execSQL(SQL_TBL_PONTO_MONUMENTOS);
+        db.execSQL(SQL_TBL_PONTO_ARTESANATOS);
 
         //Inserindo os Campos..
 
@@ -127,7 +129,31 @@ public class PontoTuristicoOpenHelper extends SQLiteOpenHelper {
                     "longitude REAL," +
                     "idTab INTEGER"+
                     ");";
-    // ----------------------------------------------------
 
+    //-----------------------------------------------------
+    public static String TBL_PONTO_MONUMENTOS= "tbl_pontoMonumentos";
+    private static String SQL_TBL_PONTO_MONUMENTOS=
+            "CREATE TABLE tbl_pontoMonumentos (" +
+                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "titulo TEXT," +
+                    "descricao TEXT," +
+                    "texto TEXT," +
+                    "latitude REAL," +
+                    "longitude REAL," +
+                    "idTab INTEGER"+
+                    ");";
+
+    // ----------------------------------------------------
+    public static String TBL_PONTO_ARTESANATOS= "tbl_pontoArtesanatos";
+    private static String SQL_TBL_PONTO_ARTESANATOS=
+            "CREATE TABLE tbl_pontoArtesanatos (" +
+                    "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                    "titulo TEXT," +
+                    "descricao TEXT," +
+                    "texto TEXT," +
+                    "latitude REAL," +
+                    "longitude REAL," +
+                    "idTab INTEGER"+
+                    ");";
 
 }

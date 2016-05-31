@@ -35,17 +35,15 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         View view = (View) this.findViewById(R.id.imagem);
 
-
         texto = (TextView) findViewById(R.id.texto);
-
 
         texto.setText(pontoTuristico.getPontoTuristico());
         pontoTuristico.MostrarImagem(view, pontoTuristico.getPontoTuristicoID(), pontoTuristico.getIdTab());
 
         Toolbar toolbar_ponto_turistico = (Toolbar) findViewById(R.id.toolbar_ponto_turistico);
-
 
         toolbar_ponto_turistico.inflateMenu(R.menu.menu_ponto_historio);
         toolbar_ponto_turistico.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -70,5 +68,15 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -53,6 +53,7 @@ import java.util.List;
 
 import br.com.guiamobile.R;
 import br.com.guiamobile.controller.ListaMapaRepositorio;
+import br.com.guiamobile.model.Monumentos;
 
 
 public class MainActivity extends AppCompatActivity
@@ -281,6 +282,12 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.teatros:
                 startActivity(new Intent(this, TeatrosActivity.class));
+                break;
+            case R.id.monumentos:
+                startActivity(new Intent(this, MonumentosActivity.class));
+                break;
+            case R.id.artesanatos:
+                startActivity(new Intent(this, ArtesanatosActivity.class));
                 break;
             case R.id.share:
                 String url = getString(R.string.linkapp);
