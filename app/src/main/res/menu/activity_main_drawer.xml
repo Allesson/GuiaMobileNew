@@ -29,7 +29,7 @@
             android:title="@string/Artesanatos" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Comunicação">
         <menu>
             <item
                 android:id="@+id/share"
@@ -39,6 +39,10 @@
                 android:id="@+id/avaliar"
                 android:icon="@drawable/common_ic_googleplayservices"
                 android:title="@string/avalie" />
+            <item
+                android:id="@+id/site"
+                android:icon="@mipmap/ic_guia"
+                android:title="@string/site" />
         </menu>
     </item>
 

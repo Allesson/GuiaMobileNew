@@ -8,7 +8,8 @@
             android:id="@+id/como_chegar"
             android:icon="@drawable/ic_gps"
             android:title="como_chegar"
-            app:showAsAction="always" />
+            app:showAsAction="always"
+            />
 
         <item
             android:id="@+id/compartilhar"

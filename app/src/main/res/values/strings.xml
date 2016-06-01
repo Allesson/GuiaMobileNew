@@ -13,12 +13,14 @@
     <string name="avalie">Avalie</string>
     <string name="compartilhar">Compartilhar app</string>
     <string name="linkapp">http://guiamobi.pe.hu/guiamobi.rar</string>
-    <string name="compartilhar_main">Olha o app sobre Guia Turístico que encontrei para Adnroid. Baixa aí </string>
+    <string name="compartilhar_main">Olha o app sobre Guia Turístico que encontrei para Android. Baixa aí </string>
     <string name="erro_sem_internet">Erro: Não há conexão com a Internet</string>
+    <string name="erro_nao_disponivel">Ainda não disponível na Google Play</string>
     <string name="Pontes">Pontes</string>
     <string name="Teatros">Teatros</string>
     <string name="Monumentos">Monumentos</string>
     <string name="Artesanatos">Artesanatos</string>
     <string name="compartilhar_ponto">Compartilhar com:</string>
+    <string name="site">Ir para nosso site</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

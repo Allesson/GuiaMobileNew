@@ -20,7 +20,7 @@ public class SplashActivity extends Activity implements Runnable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         splashScreen = new Handler();
-        splashScreen.postDelayed(SplashActivity.this, 500);
+        splashScreen.postDelayed(SplashActivity.this, 600);
     }
     @Override
     public void run() {

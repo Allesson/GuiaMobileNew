@@ -52,7 +52,7 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.compartilhar:
-                        String msg = "Guia Mobile - Ponto Turistico" + "\n" + "Titulo: " + pontoTuristico.getTitulo() + "\n" + pontoTuristico.getPontoTuristico() + "\n" + getString(R.string.linkapp);
+                        String msg = "Guia Mobi - Ponto Turistico\n" + "\n"  + pontoTuristico.getTitulo() + "\n" + pontoTuristico.getPontoTuristico() + "\n" + getString(R.string.linkapp);
                         Intent it = new Intent();
                         it.setAction(Intent.ACTION_SEND);
                         it.putExtra(Intent.EXTRA_TEXT, msg);

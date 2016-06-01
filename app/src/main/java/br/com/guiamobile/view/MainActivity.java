@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.avaliar:
-                try {
+                /*try {
                     PackageInfo pInfo = getApplicationContext().getPackageManager().getPackageInfo(getApplicationContext().getPackageName(), 0);
                     String link = "https://play.google.com/store/apps/details?id=" + pInfo.packageName;
                     Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
@@ -313,8 +313,14 @@ public class MainActivity extends AppCompatActivity
 
                 } catch (PackageManager.NameNotFoundException e) {
                     e.printStackTrace();
-                }
+                }*/
+                Toast.makeText(MainActivity.this, getString(R.string.erro_nao_disponivel), Toast.LENGTH_SHORT).show();
 
+                break;
+            case R.id.site:
+                String link = "http://guiamobi.pe.hu";
+                Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(it);
                 break;
         }
 
