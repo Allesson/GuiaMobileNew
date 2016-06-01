@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Guia Mobile</string>
+    <string name="app_name">Guia Mobi</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="Igrejas">Igrejas</string>
@@ -13,11 +13,12 @@
     <string name="avalie">Avalie</string>
     <string name="compartilhar">Compartilhar app</string>
     <string name="linkapp">https://drive.google.com/open?id=0B9L_zsVwXRkwTUl4WFBkaFV6Umc</string>
-    <string name="compartilhar_main">Olha o app sobre Guia Turístico que encontrei na Google Play. Baixa aí </string>
+    <string name="compartilhar_main">Olha o app sobre Guia Turístico que encontrei para Adnroid. Baixa aí </string>
     <string name="erro_sem_internet">Erro: Não há conexão com a Internet</string>
     <string name="Pontes">Pontes</string>
     <string name="Teatros">Teatros</string>
     <string name="Monumentos">Monumentos</string>
     <string name="Artesanatos">Artesanatos</string>
+    <string name="compartilhar_ponto">Compartilhar com:</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

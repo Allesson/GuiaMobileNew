@@ -57,18 +57,20 @@ public class PontoEscolhidoActivity extends AppCompatActivity {
                         it.setAction(Intent.ACTION_SEND);
                         it.putExtra(Intent.EXTRA_TEXT, msg);
                         it.setType("text/plain");
-                        startActivity(Intent.createChooser(it, msg));
+                        startActivity(Intent.createChooser(it, getString(R.string.compartilhar_ponto)));
                         break;
                     case R.id.como_chegar:
                         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                                 Uri.parse("geo:0,0?q=" + pontoTuristico.getLatitude() + "," + pontoTuristico.getLongitude() + "(" + pontoTuristico.getTitulo() + ")"));
                         startActivity(intent);
                         break;
+
                 }
                 return true;
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
